@@ -1,0 +1,870 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MemberManagementSystemDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CardLevels">
+          <Key>
+            <PropertyRef Name="CL_ID" />
+          </Key>
+          <Property Name="CL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CL_LevelName" Type="nvarchar" MaxLength="20" />
+          <Property Name="CL_NeedPoint" Type="nvarchar" MaxLength="50" />
+          <Property Name="CL_Point" Type="float" />
+          <Property Name="CL_Percent" Type="float" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="C_Category" />
+          </Key>
+          <Property Name="C_Category" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="C_Illustration" Type="varchar" MaxLength="20" />
+          <Property Name="C_IsShow" Type="bit" />
+        </EntityType>
+        <EntityType Name="CategoryItems">
+          <Key>
+            <PropertyRef Name="CI_ID" />
+          </Key>
+          <Property Name="CI_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="C_Category" Type="varchar" MaxLength="20" />
+          <Property Name="CI_Name" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ConsumptionOrders">
+          <Key>
+            <PropertyRef Name="CO_ID" />
+          </Key>
+          <Property Name="CO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MC_ID" Type="int" />
+          <Property Name="S_ID" Type="int" />
+          <Property Name="CO_TotalPrice" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="CO_CreateTime" Type="datetime" />
+          <Property Name="CO_Status" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="ExchangGifts">
+          <Key>
+            <PropertyRef Name="EG_ID" />
+          </Key>
+          <Property Name="EG_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="S_ID" Type="int" />
+          <Property Name="EG_GiftCode" Type="varchar" MaxLength="255" />
+          <Property Name="EG_GiftName" Type="varchar" MaxLength="255" />
+          <Property Name="EG_Photo" Type="varchar" MaxLength="255" />
+          <Property Name="EG_Point" Type="int" />
+          <Property Name="EG_Number" Type="int" />
+          <Property Name="EG_ExchangNum" Type="int" />
+          <Property Name="EG_Remark" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="ExchangLogs">
+          <Key>
+            <PropertyRef Name="EL_ID" />
+          </Key>
+          <Property Name="EL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="S_ID" Type="int" Nullable="false" />
+          <Property Name="U_ID" Type="int" Nullable="false" />
+          <Property Name="MC_ID" Type="int" />
+          <Property Name="MC_CardID" Type="nvarchar" MaxLength="50" />
+          <Property Name="MC_Name" Type="nvarchar" MaxLength="20" />
+          <Property Name="EG_ID" Type="int" />
+          <Property Name="EG_GiftCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="EG_GiftName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EL_Number" Type="int" Nullable="false" />
+          <Property Name="EL_Point" Type="int" Nullable="false" />
+          <Property Name="EL_CreateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MemCards">
+          <Key>
+            <PropertyRef Name="MC_ID" />
+          </Key>
+          <Property Name="MC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CL_ID" Type="int" />
+          <Property Name="S_ID" Type="int" />
+          <Property Name="MC_CardID" Type="nvarchar" MaxLength="50" />
+          <Property Name="MC_Password" Type="nvarchar" MaxLength="20" />
+          <Property Name="MC_Name" Type="nvarchar" MaxLength="20" />
+          <Property Name="MC_Sex" Type="int" />
+          <Property Name="MC_Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="MC_Photo" Type="varchar" MaxLength="200" />
+          <Property Name="MC_Birthday_Month" Type="int" />
+          <Property Name="MC_Birthday_Day" Type="int" />
+          <Property Name="MC_BirthdayType" Type="tinyint" />
+          <Property Name="MC_IsPast" Type="tinyint" />
+          <Property Name="MC_PastTime" Type="datetime" />
+          <Property Name="MC_Point" Type="int" />
+          <Property Name="MC_Money" Type="real" />
+          <Property Name="MC_TotalMoney" Type="real" />
+          <Property Name="MC_TotalCount" Type="int" />
+          <Property Name="MC_State" Type="int" />
+          <Property Name="MC_IsPointAuto" Type="tinyint" />
+          <Property Name="MC_RefererID" Type="int" />
+          <Property Name="MC_RefererCard" Type="nvarchar" MaxLength="50" />
+          <Property Name="MC_RefererName" Type="nvarchar" MaxLength="20" />
+          <Property Name="MC_CreateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Shops">
+          <Key>
+            <PropertyRef Name="S_ID" />
+          </Key>
+          <Property Name="S_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="S_Name" Type="varchar" MaxLength="20" />
+          <Property Name="S_Category" Type="int" />
+          <Property Name="S_ContactName" Type="varchar" MaxLength="20" />
+          <Property Name="S_ContactTel" Type="varchar" MaxLength="20" />
+          <Property Name="S_Address" Type="varchar" MaxLength="50" />
+          <Property Name="S_Remark" Type="varchar" MaxLength="100" />
+          <Property Name="S_IsHasSetAdmin" Type="bit" />
+          <Property Name="S_CreateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TransferLogs">
+          <Key>
+            <PropertyRef Name="TL_ID" />
+          </Key>
+          <Property Name="TL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="S_ID" Type="int" Nullable="false" />
+          <Property Name="U_ID" Type="int" Nullable="false" />
+          <Property Name="TL_FromMC_ID" Type="int" />
+          <Property Name="TL_FromMC_CardID" Type="nvarchar" MaxLength="50" />
+          <Property Name="TL_ToMC_ID" Type="int" />
+          <Property Name="TL_ToMC_CardID" Type="nvarchar" MaxLength="50" />
+          <Property Name="TL_TransferMoney" Type="money" Nullable="false" />
+          <Property Name="TL_Remark" Type="varchar" MaxLength="200" />
+          <Property Name="TL_CreateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="U_ID" />
+          </Key>
+          <Property Name="U_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="S_ID" Type="int" />
+          <Property Name="U_LoginName" Type="nvarchar" MaxLength="20" />
+          <Property Name="U_Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="U_RealName" Type="nvarchar" MaxLength="20" />
+          <Property Name="U_Sex" Type="nvarchar" MaxLength="10" />
+          <Property Name="U_Telephone" Type="nvarchar" MaxLength="20" />
+          <Property Name="U_Role" Type="int" />
+          <Property Name="U_CanDelete" Type="bit" />
+        </EntityType>
+        <Association Name="FK__CategoryI__C_Cat__398D8EEE">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="CategoryItems" Type="Self.CategoryItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="C_Category" />
+            </Principal>
+            <Dependent Role="CategoryItems">
+              <PropertyRef Name="C_Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Consumpti__MC_ID__4AB81AF0">
+          <End Role="MemCards" Type="Self.MemCards" Multiplicity="0..1" />
+          <End Role="ConsumptionOrders" Type="Self.ConsumptionOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemCards">
+              <PropertyRef Name="MC_ID" />
+            </Principal>
+            <Dependent Role="ConsumptionOrders">
+              <PropertyRef Name="MC_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Consumptio__S_ID__4BAC3F29">
+          <End Role="Shops" Type="Self.Shops" Multiplicity="0..1" />
+          <End Role="ConsumptionOrders" Type="Self.ConsumptionOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shops">
+              <PropertyRef Name="S_ID" />
+            </Principal>
+            <Dependent Role="ConsumptionOrders">
+              <PropertyRef Name="S_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ExchangGif__S_ID__47DBAE45">
+          <End Role="Shops" Type="Self.Shops" Multiplicity="0..1" />
+          <End Role="ExchangGifts" Type="Self.ExchangGifts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shops">
+              <PropertyRef Name="S_ID" />
+            </Principal>
+            <Dependent Role="ExchangGifts">
+              <PropertyRef Name="S_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ExchangLog__S_ID__5441852A">
+          <End Role="Shops" Type="Self.Shops" Multiplicity="1" />
+          <End Role="ExchangLogs" Type="Self.ExchangLogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shops">
+              <PropertyRef Name="S_ID" />
+            </Principal>
+            <Dependent Role="ExchangLogs">
+              <PropertyRef Name="S_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ExchangLog__U_ID__5535A963">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="ExchangLogs" Type="Self.ExchangLogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="U_ID" />
+            </Principal>
+            <Dependent Role="ExchangLogs">
+              <PropertyRef Name="U_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MemCards__CL_ID__440B1D61">
+          <End Role="CardLevels" Type="Self.CardLevels" Multiplicity="0..1" />
+          <End Role="MemCards" Type="Self.MemCards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CardLevels">
+              <PropertyRef Name="CL_ID" />
+            </Principal>
+            <Dependent Role="MemCards">
+              <PropertyRef Name="CL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MemCards__S_ID__44FF419A">
+          <End Role="Shops" Type="Self.Shops" Multiplicity="0..1" />
+          <End Role="MemCards" Type="Self.MemCards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shops">
+              <PropertyRef Name="S_ID" />
+            </Principal>
+            <Dependent Role="MemCards">
+              <PropertyRef Name="S_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TransferLo__S_ID__4F7CD00D">
+          <End Role="Shops" Type="Self.Shops" Multiplicity="1" />
+          <End Role="TransferLogs" Type="Self.TransferLogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shops">
+              <PropertyRef Name="S_ID" />
+            </Principal>
+            <Dependent Role="TransferLogs">
+              <PropertyRef Name="S_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TransferLo__U_ID__5070F446">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="TransferLogs" Type="Self.TransferLogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="U_ID" />
+            </Principal>
+            <Dependent Role="TransferLogs">
+              <PropertyRef Name="U_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__S_ID__3E52440B">
+          <End Role="Shops" Type="Self.Shops" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shops">
+              <PropertyRef Name="S_ID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="S_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MemberManagementSystemDBModelStoreContainer">
+          <EntitySet Name="CardLevels" EntityType="Self.CardLevels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryItems" EntityType="Self.CategoryItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConsumptionOrders" EntityType="Self.ConsumptionOrders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExchangGifts" EntityType="Self.ExchangGifts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExchangLogs" EntityType="Self.ExchangLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemCards" EntityType="Self.MemCards" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shops" EntityType="Self.Shops" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransferLogs" EntityType="Self.TransferLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CategoryI__C_Cat__398D8EEE" Association="Self.FK__CategoryI__C_Cat__398D8EEE">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="CategoryItems" EntitySet="CategoryItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Consumpti__MC_ID__4AB81AF0" Association="Self.FK__Consumpti__MC_ID__4AB81AF0">
+            <End Role="MemCards" EntitySet="MemCards" />
+            <End Role="ConsumptionOrders" EntitySet="ConsumptionOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Consumptio__S_ID__4BAC3F29" Association="Self.FK__Consumptio__S_ID__4BAC3F29">
+            <End Role="Shops" EntitySet="Shops" />
+            <End Role="ConsumptionOrders" EntitySet="ConsumptionOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ExchangGif__S_ID__47DBAE45" Association="Self.FK__ExchangGif__S_ID__47DBAE45">
+            <End Role="Shops" EntitySet="Shops" />
+            <End Role="ExchangGifts" EntitySet="ExchangGifts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ExchangLog__S_ID__5441852A" Association="Self.FK__ExchangLog__S_ID__5441852A">
+            <End Role="Shops" EntitySet="Shops" />
+            <End Role="ExchangLogs" EntitySet="ExchangLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ExchangLog__U_ID__5535A963" Association="Self.FK__ExchangLog__U_ID__5535A963">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ExchangLogs" EntitySet="ExchangLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MemCards__CL_ID__440B1D61" Association="Self.FK__MemCards__CL_ID__440B1D61">
+            <End Role="CardLevels" EntitySet="CardLevels" />
+            <End Role="MemCards" EntitySet="MemCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MemCards__S_ID__44FF419A" Association="Self.FK__MemCards__S_ID__44FF419A">
+            <End Role="Shops" EntitySet="Shops" />
+            <End Role="MemCards" EntitySet="MemCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TransferLo__S_ID__4F7CD00D" Association="Self.FK__TransferLo__S_ID__4F7CD00D">
+            <End Role="Shops" EntitySet="Shops" />
+            <End Role="TransferLogs" EntitySet="TransferLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TransferLo__U_ID__5070F446" Association="Self.FK__TransferLo__U_ID__5070F446">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="TransferLogs" EntitySet="TransferLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__S_ID__3E52440B" Association="Self.FK__Users__S_ID__3E52440B">
+            <End Role="Shops" EntitySet="Shops" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MemberManagementSystemDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CardLevels">
+          <Key>
+            <PropertyRef Name="CL_ID" />
+          </Key>
+          <Property Name="CL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CL_LevelName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CL_NeedPoint" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CL_Point" Type="Double" />
+          <Property Name="CL_Percent" Type="Double" />
+          <NavigationProperty Name="MemCards" Relationship="Self.FK__MemCards__CL_ID__440B1D61" FromRole="CardLevels" ToRole="MemCards" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="C_Category" />
+          </Key>
+          <Property Name="C_Category" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="C_Illustration" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="C_IsShow" Type="Boolean" />
+          <NavigationProperty Name="CategoryItems" Relationship="Self.FK__CategoryI__C_Cat__398D8EEE" FromRole="Categories" ToRole="CategoryItems" />
+        </EntityType>
+        <EntityType Name="CategoryItems">
+          <Key>
+            <PropertyRef Name="CI_ID" />
+          </Key>
+          <Property Name="CI_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_Category" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CI_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Categories" Relationship="Self.FK__CategoryI__C_Cat__398D8EEE" FromRole="CategoryItems" ToRole="Categories" />
+        </EntityType>
+        <EntityType Name="ConsumptionOrders">
+          <Key>
+            <PropertyRef Name="CO_ID" />
+          </Key>
+          <Property Name="CO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MC_ID" Type="Int32" />
+          <Property Name="S_ID" Type="Int32" />
+          <Property Name="CO_TotalPrice" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="CO_CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CO_Status" Type="Byte" />
+          <NavigationProperty Name="MemCards" Relationship="Self.FK__Consumpti__MC_ID__4AB81AF0" FromRole="ConsumptionOrders" ToRole="MemCards" />
+          <NavigationProperty Name="Shops" Relationship="Self.FK__Consumptio__S_ID__4BAC3F29" FromRole="ConsumptionOrders" ToRole="Shops" />
+        </EntityType>
+        <EntityType Name="ExchangGifts">
+          <Key>
+            <PropertyRef Name="EG_ID" />
+          </Key>
+          <Property Name="EG_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="S_ID" Type="Int32" />
+          <Property Name="EG_GiftCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EG_GiftName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EG_Photo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EG_Point" Type="Int32" />
+          <Property Name="EG_Number" Type="Int32" />
+          <Property Name="EG_ExchangNum" Type="Int32" />
+          <Property Name="EG_Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Shops" Relationship="Self.FK__ExchangGif__S_ID__47DBAE45" FromRole="ExchangGifts" ToRole="Shops" />
+        </EntityType>
+        <EntityType Name="ExchangLogs">
+          <Key>
+            <PropertyRef Name="EL_ID" />
+          </Key>
+          <Property Name="EL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="S_ID" Type="Int32" Nullable="false" />
+          <Property Name="U_ID" Type="Int32" Nullable="false" />
+          <Property Name="MC_ID" Type="Int32" />
+          <Property Name="MC_CardID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MC_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="EG_ID" Type="Int32" />
+          <Property Name="EG_GiftCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EG_GiftName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EL_Number" Type="Int32" Nullable="false" />
+          <Property Name="EL_Point" Type="Int32" Nullable="false" />
+          <Property Name="EL_CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Shops" Relationship="Self.FK__ExchangLog__S_ID__5441852A" FromRole="ExchangLogs" ToRole="Shops" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__ExchangLog__U_ID__5535A963" FromRole="ExchangLogs" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="MemCards">
+          <Key>
+            <PropertyRef Name="MC_ID" />
+          </Key>
+          <Property Name="MC_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CL_ID" Type="Int32" />
+          <Property Name="S_ID" Type="Int32" />
+          <Property Name="MC_CardID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MC_Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MC_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MC_Sex" Type="Int32" />
+          <Property Name="MC_Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MC_Photo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="MC_Birthday_Month" Type="Int32" />
+          <Property Name="MC_Birthday_Day" Type="Int32" />
+          <Property Name="MC_BirthdayType" Type="Byte" />
+          <Property Name="MC_IsPast" Type="Byte" />
+          <Property Name="MC_PastTime" Type="DateTime" Precision="3" />
+          <Property Name="MC_Point" Type="Int32" />
+          <Property Name="MC_Money" Type="Single" />
+          <Property Name="MC_TotalMoney" Type="Single" />
+          <Property Name="MC_TotalCount" Type="Int32" />
+          <Property Name="MC_State" Type="Int32" />
+          <Property Name="MC_IsPointAuto" Type="Byte" />
+          <Property Name="MC_RefererID" Type="Int32" />
+          <Property Name="MC_RefererCard" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MC_RefererName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MC_CreateTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CardLevels" Relationship="Self.FK__MemCards__CL_ID__440B1D61" FromRole="MemCards" ToRole="CardLevels" />
+          <NavigationProperty Name="ConsumptionOrders" Relationship="Self.FK__Consumpti__MC_ID__4AB81AF0" FromRole="MemCards" ToRole="ConsumptionOrders" />
+          <NavigationProperty Name="Shops" Relationship="Self.FK__MemCards__S_ID__44FF419A" FromRole="MemCards" ToRole="Shops" />
+        </EntityType>
+        <EntityType Name="Shops">
+          <Key>
+            <PropertyRef Name="S_ID" />
+          </Key>
+          <Property Name="S_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="S_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="S_Category" Type="Int32" />
+          <Property Name="S_ContactName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="S_ContactTel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="S_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="S_Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="S_IsHasSetAdmin" Type="Boolean" />
+          <Property Name="S_CreateTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ConsumptionOrders" Relationship="Self.FK__Consumptio__S_ID__4BAC3F29" FromRole="Shops" ToRole="ConsumptionOrders" />
+          <NavigationProperty Name="ExchangGifts" Relationship="Self.FK__ExchangGif__S_ID__47DBAE45" FromRole="Shops" ToRole="ExchangGifts" />
+          <NavigationProperty Name="ExchangLogs" Relationship="Self.FK__ExchangLog__S_ID__5441852A" FromRole="Shops" ToRole="ExchangLogs" />
+          <NavigationProperty Name="MemCards" Relationship="Self.FK__MemCards__S_ID__44FF419A" FromRole="Shops" ToRole="MemCards" />
+          <NavigationProperty Name="TransferLogs" Relationship="Self.FK__TransferLo__S_ID__4F7CD00D" FromRole="Shops" ToRole="TransferLogs" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__S_ID__3E52440B" FromRole="Shops" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="TransferLogs">
+          <Key>
+            <PropertyRef Name="TL_ID" />
+          </Key>
+          <Property Name="TL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="S_ID" Type="Int32" Nullable="false" />
+          <Property Name="U_ID" Type="Int32" Nullable="false" />
+          <Property Name="TL_FromMC_ID" Type="Int32" />
+          <Property Name="TL_FromMC_CardID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TL_ToMC_ID" Type="Int32" />
+          <Property Name="TL_ToMC_CardID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TL_TransferMoney" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TL_Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TL_CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Shops" Relationship="Self.FK__TransferLo__S_ID__4F7CD00D" FromRole="TransferLogs" ToRole="Shops" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__TransferLo__U_ID__5070F446" FromRole="TransferLogs" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="U_ID" />
+          </Key>
+          <Property Name="U_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="S_ID" Type="Int32" />
+          <Property Name="U_LoginName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="U_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="U_RealName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="U_Sex" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="U_Telephone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="U_Role" Type="Int32" />
+          <Property Name="U_CanDelete" Type="Boolean" />
+          <NavigationProperty Name="ExchangLogs" Relationship="Self.FK__ExchangLog__U_ID__5535A963" FromRole="Users" ToRole="ExchangLogs" />
+          <NavigationProperty Name="Shops" Relationship="Self.FK__Users__S_ID__3E52440B" FromRole="Users" ToRole="Shops" />
+          <NavigationProperty Name="TransferLogs" Relationship="Self.FK__TransferLo__U_ID__5070F446" FromRole="Users" ToRole="TransferLogs" />
+        </EntityType>
+        <Association Name="FK__MemCards__CL_ID__440B1D61">
+          <End Role="CardLevels" Type="Self.CardLevels" Multiplicity="0..1" />
+          <End Role="MemCards" Type="Self.MemCards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CardLevels">
+              <PropertyRef Name="CL_ID" />
+            </Principal>
+            <Dependent Role="MemCards">
+              <PropertyRef Name="CL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CategoryI__C_Cat__398D8EEE">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="CategoryItems" Type="Self.CategoryItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="C_Category" />
+            </Principal>
+            <Dependent Role="CategoryItems">
+              <PropertyRef Name="C_Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Consumpti__MC_ID__4AB81AF0">
+          <End Role="MemCards" Type="Self.MemCards" Multiplicity="0..1" />
+          <End Role="ConsumptionOrders" Type="Self.ConsumptionOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemCards">
+              <PropertyRef Name="MC_ID" />
+            </Principal>
+            <Dependent Role="ConsumptionOrders">
+              <PropertyRef Name="MC_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Consumptio__S_ID__4BAC3F29">
+          <End Role="Shops" Type="Self.Shops" Multiplicity="0..1" />
+          <End Role="ConsumptionOrders" Type="Self.ConsumptionOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shops">
+              <PropertyRef Name="S_ID" />
+            </Principal>
+            <Dependent Role="ConsumptionOrders">
+              <PropertyRef Name="S_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ExchangGif__S_ID__47DBAE45">
+          <End Role="Shops" Type="Self.Shops" Multiplicity="0..1" />
+          <End Role="ExchangGifts" Type="Self.ExchangGifts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shops">
+              <PropertyRef Name="S_ID" />
+            </Principal>
+            <Dependent Role="ExchangGifts">
+              <PropertyRef Name="S_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ExchangLog__S_ID__5441852A">
+          <End Role="Shops" Type="Self.Shops" Multiplicity="1" />
+          <End Role="ExchangLogs" Type="Self.ExchangLogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shops">
+              <PropertyRef Name="S_ID" />
+            </Principal>
+            <Dependent Role="ExchangLogs">
+              <PropertyRef Name="S_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ExchangLog__U_ID__5535A963">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="ExchangLogs" Type="Self.ExchangLogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="U_ID" />
+            </Principal>
+            <Dependent Role="ExchangLogs">
+              <PropertyRef Name="U_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MemCards__S_ID__44FF419A">
+          <End Role="Shops" Type="Self.Shops" Multiplicity="0..1" />
+          <End Role="MemCards" Type="Self.MemCards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shops">
+              <PropertyRef Name="S_ID" />
+            </Principal>
+            <Dependent Role="MemCards">
+              <PropertyRef Name="S_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TransferLo__S_ID__4F7CD00D">
+          <End Role="Shops" Type="Self.Shops" Multiplicity="1" />
+          <End Role="TransferLogs" Type="Self.TransferLogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shops">
+              <PropertyRef Name="S_ID" />
+            </Principal>
+            <Dependent Role="TransferLogs">
+              <PropertyRef Name="S_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__S_ID__3E52440B">
+          <End Role="Shops" Type="Self.Shops" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shops">
+              <PropertyRef Name="S_ID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="S_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TransferLo__U_ID__5070F446">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="TransferLogs" Type="Self.TransferLogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="U_ID" />
+            </Principal>
+            <Dependent Role="TransferLogs">
+              <PropertyRef Name="U_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MemberManagementSystemDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CardLevels" EntityType="Self.CardLevels" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" />
+          <EntitySet Name="CategoryItems" EntityType="Self.CategoryItems" />
+          <EntitySet Name="ConsumptionOrders" EntityType="Self.ConsumptionOrders" />
+          <EntitySet Name="ExchangGifts" EntityType="Self.ExchangGifts" />
+          <EntitySet Name="ExchangLogs" EntityType="Self.ExchangLogs" />
+          <EntitySet Name="MemCards" EntityType="Self.MemCards" />
+          <EntitySet Name="Shops" EntityType="Self.Shops" />
+          <EntitySet Name="TransferLogs" EntityType="Self.TransferLogs" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <AssociationSet Name="FK__MemCards__CL_ID__440B1D61" Association="Self.FK__MemCards__CL_ID__440B1D61">
+            <End Role="CardLevels" EntitySet="CardLevels" />
+            <End Role="MemCards" EntitySet="MemCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CategoryI__C_Cat__398D8EEE" Association="Self.FK__CategoryI__C_Cat__398D8EEE">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="CategoryItems" EntitySet="CategoryItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Consumpti__MC_ID__4AB81AF0" Association="Self.FK__Consumpti__MC_ID__4AB81AF0">
+            <End Role="MemCards" EntitySet="MemCards" />
+            <End Role="ConsumptionOrders" EntitySet="ConsumptionOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Consumptio__S_ID__4BAC3F29" Association="Self.FK__Consumptio__S_ID__4BAC3F29">
+            <End Role="Shops" EntitySet="Shops" />
+            <End Role="ConsumptionOrders" EntitySet="ConsumptionOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ExchangGif__S_ID__47DBAE45" Association="Self.FK__ExchangGif__S_ID__47DBAE45">
+            <End Role="Shops" EntitySet="Shops" />
+            <End Role="ExchangGifts" EntitySet="ExchangGifts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ExchangLog__S_ID__5441852A" Association="Self.FK__ExchangLog__S_ID__5441852A">
+            <End Role="Shops" EntitySet="Shops" />
+            <End Role="ExchangLogs" EntitySet="ExchangLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ExchangLog__U_ID__5535A963" Association="Self.FK__ExchangLog__U_ID__5535A963">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ExchangLogs" EntitySet="ExchangLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MemCards__S_ID__44FF419A" Association="Self.FK__MemCards__S_ID__44FF419A">
+            <End Role="Shops" EntitySet="Shops" />
+            <End Role="MemCards" EntitySet="MemCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TransferLo__S_ID__4F7CD00D" Association="Self.FK__TransferLo__S_ID__4F7CD00D">
+            <End Role="Shops" EntitySet="Shops" />
+            <End Role="TransferLogs" EntitySet="TransferLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__S_ID__3E52440B" Association="Self.FK__Users__S_ID__3E52440B">
+            <End Role="Shops" EntitySet="Shops" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TransferLo__U_ID__5070F446" Association="Self.FK__TransferLo__U_ID__5070F446">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="TransferLogs" EntitySet="TransferLogs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MemberManagementSystemDBModelStoreContainer" CdmEntityContainer="MemberManagementSystemDBEntities">
+          <EntitySetMapping Name="CardLevels">
+            <EntityTypeMapping TypeName="MemberManagementSystemDBModel.CardLevels">
+              <MappingFragment StoreEntitySet="CardLevels">
+                <ScalarProperty Name="CL_ID" ColumnName="CL_ID" />
+                <ScalarProperty Name="CL_LevelName" ColumnName="CL_LevelName" />
+                <ScalarProperty Name="CL_NeedPoint" ColumnName="CL_NeedPoint" />
+                <ScalarProperty Name="CL_Point" ColumnName="CL_Point" />
+                <ScalarProperty Name="CL_Percent" ColumnName="CL_Percent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="MemberManagementSystemDBModel.Categories">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="C_Category" ColumnName="C_Category" />
+                <ScalarProperty Name="C_Illustration" ColumnName="C_Illustration" />
+                <ScalarProperty Name="C_IsShow" ColumnName="C_IsShow" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryItems">
+            <EntityTypeMapping TypeName="MemberManagementSystemDBModel.CategoryItems">
+              <MappingFragment StoreEntitySet="CategoryItems">
+                <ScalarProperty Name="CI_ID" ColumnName="CI_ID" />
+                <ScalarProperty Name="C_Category" ColumnName="C_Category" />
+                <ScalarProperty Name="CI_Name" ColumnName="CI_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConsumptionOrders">
+            <EntityTypeMapping TypeName="MemberManagementSystemDBModel.ConsumptionOrders">
+              <MappingFragment StoreEntitySet="ConsumptionOrders">
+                <ScalarProperty Name="CO_ID" ColumnName="CO_ID" />
+                <ScalarProperty Name="MC_ID" ColumnName="MC_ID" />
+                <ScalarProperty Name="S_ID" ColumnName="S_ID" />
+                <ScalarProperty Name="CO_TotalPrice" ColumnName="CO_TotalPrice" />
+                <ScalarProperty Name="CO_CreateTime" ColumnName="CO_CreateTime" />
+                <ScalarProperty Name="CO_Status" ColumnName="CO_Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExchangGifts">
+            <EntityTypeMapping TypeName="MemberManagementSystemDBModel.ExchangGifts">
+              <MappingFragment StoreEntitySet="ExchangGifts">
+                <ScalarProperty Name="EG_ID" ColumnName="EG_ID" />
+                <ScalarProperty Name="S_ID" ColumnName="S_ID" />
+                <ScalarProperty Name="EG_GiftCode" ColumnName="EG_GiftCode" />
+                <ScalarProperty Name="EG_GiftName" ColumnName="EG_GiftName" />
+                <ScalarProperty Name="EG_Photo" ColumnName="EG_Photo" />
+                <ScalarProperty Name="EG_Point" ColumnName="EG_Point" />
+                <ScalarProperty Name="EG_Number" ColumnName="EG_Number" />
+                <ScalarProperty Name="EG_ExchangNum" ColumnName="EG_ExchangNum" />
+                <ScalarProperty Name="EG_Remark" ColumnName="EG_Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExchangLogs">
+            <EntityTypeMapping TypeName="MemberManagementSystemDBModel.ExchangLogs">
+              <MappingFragment StoreEntitySet="ExchangLogs">
+                <ScalarProperty Name="EL_ID" ColumnName="EL_ID" />
+                <ScalarProperty Name="S_ID" ColumnName="S_ID" />
+                <ScalarProperty Name="U_ID" ColumnName="U_ID" />
+                <ScalarProperty Name="MC_ID" ColumnName="MC_ID" />
+                <ScalarProperty Name="MC_CardID" ColumnName="MC_CardID" />
+                <ScalarProperty Name="MC_Name" ColumnName="MC_Name" />
+                <ScalarProperty Name="EG_ID" ColumnName="EG_ID" />
+                <ScalarProperty Name="EG_GiftCode" ColumnName="EG_GiftCode" />
+                <ScalarProperty Name="EG_GiftName" ColumnName="EG_GiftName" />
+                <ScalarProperty Name="EL_Number" ColumnName="EL_Number" />
+                <ScalarProperty Name="EL_Point" ColumnName="EL_Point" />
+                <ScalarProperty Name="EL_CreateTime" ColumnName="EL_CreateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemCards">
+            <EntityTypeMapping TypeName="MemberManagementSystemDBModel.MemCards">
+              <MappingFragment StoreEntitySet="MemCards">
+                <ScalarProperty Name="MC_ID" ColumnName="MC_ID" />
+                <ScalarProperty Name="CL_ID" ColumnName="CL_ID" />
+                <ScalarProperty Name="S_ID" ColumnName="S_ID" />
+                <ScalarProperty Name="MC_CardID" ColumnName="MC_CardID" />
+                <ScalarProperty Name="MC_Password" ColumnName="MC_Password" />
+                <ScalarProperty Name="MC_Name" ColumnName="MC_Name" />
+                <ScalarProperty Name="MC_Sex" ColumnName="MC_Sex" />
+                <ScalarProperty Name="MC_Mobile" ColumnName="MC_Mobile" />
+                <ScalarProperty Name="MC_Photo" ColumnName="MC_Photo" />
+                <ScalarProperty Name="MC_Birthday_Month" ColumnName="MC_Birthday_Month" />
+                <ScalarProperty Name="MC_Birthday_Day" ColumnName="MC_Birthday_Day" />
+                <ScalarProperty Name="MC_BirthdayType" ColumnName="MC_BirthdayType" />
+                <ScalarProperty Name="MC_IsPast" ColumnName="MC_IsPast" />
+                <ScalarProperty Name="MC_PastTime" ColumnName="MC_PastTime" />
+                <ScalarProperty Name="MC_Point" ColumnName="MC_Point" />
+                <ScalarProperty Name="MC_Money" ColumnName="MC_Money" />
+                <ScalarProperty Name="MC_TotalMoney" ColumnName="MC_TotalMoney" />
+                <ScalarProperty Name="MC_TotalCount" ColumnName="MC_TotalCount" />
+                <ScalarProperty Name="MC_State" ColumnName="MC_State" />
+                <ScalarProperty Name="MC_IsPointAuto" ColumnName="MC_IsPointAuto" />
+                <ScalarProperty Name="MC_RefererID" ColumnName="MC_RefererID" />
+                <ScalarProperty Name="MC_RefererCard" ColumnName="MC_RefererCard" />
+                <ScalarProperty Name="MC_RefererName" ColumnName="MC_RefererName" />
+                <ScalarProperty Name="MC_CreateTime" ColumnName="MC_CreateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shops">
+            <EntityTypeMapping TypeName="MemberManagementSystemDBModel.Shops">
+              <MappingFragment StoreEntitySet="Shops">
+                <ScalarProperty Name="S_ID" ColumnName="S_ID" />
+                <ScalarProperty Name="S_Name" ColumnName="S_Name" />
+                <ScalarProperty Name="S_Category" ColumnName="S_Category" />
+                <ScalarProperty Name="S_ContactName" ColumnName="S_ContactName" />
+                <ScalarProperty Name="S_ContactTel" ColumnName="S_ContactTel" />
+                <ScalarProperty Name="S_Address" ColumnName="S_Address" />
+                <ScalarProperty Name="S_Remark" ColumnName="S_Remark" />
+                <ScalarProperty Name="S_IsHasSetAdmin" ColumnName="S_IsHasSetAdmin" />
+                <ScalarProperty Name="S_CreateTime" ColumnName="S_CreateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransferLogs">
+            <EntityTypeMapping TypeName="MemberManagementSystemDBModel.TransferLogs">
+              <MappingFragment StoreEntitySet="TransferLogs">
+                <ScalarProperty Name="TL_ID" ColumnName="TL_ID" />
+                <ScalarProperty Name="S_ID" ColumnName="S_ID" />
+                <ScalarProperty Name="U_ID" ColumnName="U_ID" />
+                <ScalarProperty Name="TL_FromMC_ID" ColumnName="TL_FromMC_ID" />
+                <ScalarProperty Name="TL_FromMC_CardID" ColumnName="TL_FromMC_CardID" />
+                <ScalarProperty Name="TL_ToMC_ID" ColumnName="TL_ToMC_ID" />
+                <ScalarProperty Name="TL_ToMC_CardID" ColumnName="TL_ToMC_CardID" />
+                <ScalarProperty Name="TL_TransferMoney" ColumnName="TL_TransferMoney" />
+                <ScalarProperty Name="TL_Remark" ColumnName="TL_Remark" />
+                <ScalarProperty Name="TL_CreateTime" ColumnName="TL_CreateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="MemberManagementSystemDBModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="U_ID" ColumnName="U_ID" />
+                <ScalarProperty Name="S_ID" ColumnName="S_ID" />
+                <ScalarProperty Name="U_LoginName" ColumnName="U_LoginName" />
+                <ScalarProperty Name="U_Password" ColumnName="U_Password" />
+                <ScalarProperty Name="U_RealName" ColumnName="U_RealName" />
+                <ScalarProperty Name="U_Sex" ColumnName="U_Sex" />
+                <ScalarProperty Name="U_Telephone" ColumnName="U_Telephone" />
+                <ScalarProperty Name="U_Role" ColumnName="U_Role" />
+                <ScalarProperty Name="U_CanDelete" ColumnName="U_CanDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

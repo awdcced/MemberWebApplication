@@ -1,17 +1,27 @@
-﻿<!DOCTYPE html>
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - 我的 ASP.NET 应用程序</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-    <link href="~/Content/Layout.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <script src="~/Scripts/jquery-3.7.0.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/authentication.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-material.css" rel="stylesheet" />
+    <link href="~/Content/shreerang-material.css" rel="stylesheet" />
+    <link href="~/Content/uikit.css" rel="stylesheet" />
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="bootstrap" viewBox="0 0 1024 1024">
             <title>Bootstrap</title>
-            <path d="M818.55 256.4h-628a30 30 0 1 1 0-60h628a30 30 0 0 1 0 60zM818.55 821.77h-628a30 30 0 0 1 0-60h628a30 30 0 0 1 0 60z" fill="#0A1491" p-id="3457"></path><path d="M748.73 951.26c-41.78 0-64-21.1-80.28-36.51-14.66-13.9-21.86-20-39-20s-24.31 6.14-39 20c-16.24 15.41-38.48 36.52-80.25 36.52s-64-21.11-80.21-36.53c-14.62-13.89-21.81-20-38.89-20s-24.29 6.14-38.93 20C336 930.15 313.74 951.26 272 951.26c-36.38 0-57.61-20.9-70.4-36.63-26.44-32.48-41-75.47-41-121.06V226.12c0-45.58 14.56-88.58 41-121.06 12.8-15.72 34-36.63 70.4-36.63 41.76 0 64 21.11 80.24 36.52 14.64 13.89 21.83 20 38.93 20s24.26-6.14 38.89-20c16.23-15.41 38.46-36.53 80.21-36.53s64 21.11 80.25 36.52c14.64 13.9 21.84 20 39 20s24.34-6.15 39-20c16.25-15.41 38.5-36.51 80.28-36.51 44.74 0 67.52 31.81 79.75 48.9 23.38 32.66 36.26 73.4 36.26 114.72v555.59c0 41.32-12.88 82.06-36.26 114.72-12.3 17.09-35.08 48.9-79.82 48.9zM629.44 834.7c41.78 0 64 21.1 80.29 36.51 14.66 13.9 21.86 20 39 20 10.79 0 17.73-5.34 31-23.83 16.15-22.55 25-50.89 25-79.79V232.06c0-28.9-8.89-57.23-25-79.79-13.23-18.48-20.18-23.83-31-23.83-17.14 0-24.34 6.15-39 20-16.25 15.45-38.5 36.56-80.29 36.56s-64-21.11-80.25-36.52c-14.64-13.9-21.84-20-39-20s-24.26 6.14-38.89 20c-16.18 15.4-38.41 36.52-80.16 36.52s-64-21.11-80.23-36.52c-14.64-13.89-21.83-20-38.93-20-7.83 0-13.95 2.31-23.87 14.5-17.75 21.81-27.53 51.35-27.53 83.18v567.42c0 31.83 9.78 61.37 27.53 83.18 9.92 12.19 16 14.5 23.87 14.5 17.1 0 24.29-6.14 38.93-20 16.24-15.41 38.47-36.52 80.23-36.52s64 21.11 80.21 36.53c14.63 13.89 21.81 20 38.89 20s24.31-6.14 39-20c16.19-15.46 38.44-36.57 80.2-36.57z" fill="#2F4FF8" p-id="3458"></path><path d="M688.77 515.07H336a19.2 19.2 0 0 1-19.2-19.2V329.22A19.2 19.2 0 0 1 336 310h352.77a19.2 19.2 0 0 1 19.2 19.2v166.67a19.2 19.2 0 0 1-19.2 19.2z m-333.55-38.4h314.35V348.42H355.21z" fill="#53C6F9" p-id="3459"></path>
+            <path d="M818.55 256.4h-628a30 30 0 1 1 0-60h628a30 30 0 0 1 0 60zM818.55 821.77h-628a30 30 0 0 1 0-60h628a30 30 0 0 1 0 60z" fill="#0A1491" p-id="3457"></path>
+            <path d="M748.73 951.26c-41.78 0-64-21.1-80.28-36.51-14.66-13.9-21.86-20-39-20s-24.31 6.14-39 20c-16.24 15.41-38.48 36.52-80.25 36.52s-64-21.11-80.21-36.53c-14.62-13.89-21.81-20-38.89-20s-24.29 6.14-38.93 20C336 930.15 313.74 951.26 272 951.26c-36.38 0-57.61-20.9-70.4-36.63-26.44-32.48-41-75.47-41-121.06V226.12c0-45.58 14.56-88.58 41-121.06 12.8-15.72 34-36.63 70.4-36.63 41.76 0 64 21.11 80.24 36.52 14.64 13.89 21.83 20 38.93 20s24.26-6.14 38.89-20c16.23-15.41 38.46-36.53 80.21-36.53s64 21.11 80.25 36.52c14.64 13.9 21.84 20 39 20s24.34-6.15 39-20c16.25-15.41 38.5-36.51 80.28-36.51 44.74 0 67.52 31.81 79.75 48.9 23.38 32.66 36.26 73.4 36.26 114.72v555.59c0 41.32-12.88 82.06-36.26 114.72-12.3 17.09-35.08 48.9-79.82 48.9zM629.44 834.7c41.78 0 64 21.1 80.29 36.51 14.66 13.9 21.86 20 39 20 10.79 0 17.73-5.34 31-23.83 16.15-22.55 25-50.89 25-79.79V232.06c0-28.9-8.89-57.23-25-79.79-13.23-18.48-20.18-23.83-31-23.83-17.14 0-24.34 6.15-39 20-16.25 15.45-38.5 36.56-80.29 36.56s-64-21.11-80.25-36.52c-14.64-13.9-21.84-20-39-20s-24.26 6.14-38.89 20c-16.18 15.4-38.41 36.52-80.16 36.52s-64-21.11-80.23-36.52c-14.64-13.89-21.83-20-38.93-20-7.83 0-13.95 2.31-23.87 14.5-17.75 21.81-27.53 51.35-27.53 83.18v567.42c0 31.83 9.78 61.37 27.53 83.18 9.92 12.19 16 14.5 23.87 14.5 17.1 0 24.29-6.14 38.93-20 16.24-15.41 38.47-36.52 80.23-36.52s64 21.11 80.21 36.53c14.63 13.89 21.81 20 38.89 20s24.31-6.14 39-20c16.19-15.46 38.44-36.57 80.2-36.57z" fill="#2F4FF8" p-id="3458"></path>
+            <path d="M688.77 515.07H336a19.2 19.2 0 0 1-19.2-19.2V329.22A19.2 19.2 0 0 1 336 310h352.77a19.2 19.2 0 0 1 19.2 19.2v166.67a19.2 19.2 0 0 1-19.2 19.2z m-333.55-38.4h314.35V348.42H355.21z" fill="#53C6F9" p-id="3459"></path>
         </symbol>
         <symbol id="home" viewBox="0 0 16 16">
             <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z" />
@@ -68,80 +78,51 @@
     </svg>
 </head>
 <body>
-    <div id="layout-wrapper" class="">
-        <div id="layout-inner" class="row">
-            <div id="layout-sidenav" class="col-2">
-                <div class="flex-shrink-0 bg-white p-4 mx-auto" style="width: 100%;">
-                    <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-                        <svg class="bi me-2" width="40" height="40"><use xlink:href="#bootstrap" /></svg>
-                        <span class="fs-6 fw-semibold">馋馋铺子会员商店管理系统</span>
-                    </a>
-                    <ul class="list-unstyled ps-0">
-                        <li class="mb-1">
-                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-                                Home
-                            </button>
-                            <div class="collapse show" id="home-collapse">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <li><a href="#" class="link-dark rounded">Overview</a></li>
-                                    <li><a href="#" class="link-dark rounded">Updates</a></li>
-                                    <li><a href="#" class="link-dark rounded">Reports</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="mb-1">
-                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-                                Dashboard
-                            </button>
-                            <div class="collapse" id="dashboard-collapse">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <li><a href="#" class="link-dark rounded">Overview</a></li>
-                                    <li><a href="#" class="link-dark rounded">Weekly</a></li>
-                                    <li><a href="#" class="link-dark rounded">Monthly</a></li>
-                                    <li><a href="#" class="link-dark rounded">Annually</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="mb-1">
-                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-                                Orders
-                            </button>
-                            <div class="collapse" id="orders-collapse">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <li><a href="#" class="link-dark rounded">New</a></li>
-                                    <li><a href="#" class="link-dark rounded">Processed</a></li>
-                                    <li><a href="#" class="link-dark rounded">Shipped</a></li>
-                                    <li><a href="#" class="link-dark rounded">Returned</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="border-top my-3"></li>
-                        <li class="mb-1">
-                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-                                Account
-                            </button>
-                            <div class="collapse" id="account-collapse">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <li><a href="#" class="link-dark rounded">New...</a></li>
-                                    <li><a href="#" class="link-dark rounded">Profile</a></li>
-                                    <li><a href="#" class="link-dark rounded">Settings</a></li>
-                                    <li><a href="#" class="link-dark rounded">Sign out</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+    <div class="authentication-wrapper authentication-1 px-4">
+        <div class="authentication-inner py-5">
 
+            <!-- [ Logo ] Start -->
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="ui-w-60">
+                    <div class="w-100 position-relative">
+                        <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+                            <svg class="bi me-2" width="48" height="48"><use xlink:href="#bootstrap" /></svg>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div id="layout-container" class="col-10">
-                @RenderBody()
+            <!-- [ Logo ] End -->
+            <!-- [ Form ] Start -->
+            <form class="my-5">
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="text" class="form-control">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label d-flex justify-content-between align-items-end">
+                        <span>Password</span>
+                        <a href="pages_authentication_password-reset.html" class="d-block small">Forgot password?</a>
+                    </label>
+                    <input type="password" class="form-control">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center m-0">
+                    <label class="custom-control custom-checkbox m-0">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-label">Remember me</span>
+                    </label>
+                    <button type="button" class="btn btn-primary">Sign In</button>
+                </div>
+            </form>
+            <!-- [ Form ] End -->
+
+            <div class="text-center text-muted">
+                Don't have an account yet?
+                <a href="pages_authentication_register-v1.html">Sign Up</a>
             </div>
+
         </div>
     </div>
-
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
 </body>
 </html>

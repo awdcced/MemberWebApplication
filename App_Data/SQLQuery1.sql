@@ -35,7 +35,7 @@ CREATE TABLE CategoryItems (
 
     C_Category VARCHAR(20),  
 
-    CI_ID INT IDENTITY(1,1),  
+    CI_ID INT IDENTITY(1,1) PRIMARY KEY,  
 
     CI_Name VARCHAR(20),  
 
