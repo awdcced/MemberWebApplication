@@ -3,17 +3,17 @@ use master
 
 go
 
-IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = N'MemberManagementSystem')  
+IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = N'MemberManagementSystemDB')  
 
 BEGIN  
 
-    CREATE DATABASE MemberManagementSystem;  
+    CREATE DATABASE MemberManagementSystemDB;  
 
 END  
 
 GO  
 
-USE MemberManagementSystem;  
+USE MemberManagementSystemDB;  
 
 GO  
 
