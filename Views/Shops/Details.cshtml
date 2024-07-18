@@ -1,0 +1,83 @@
+﻿@model MemberWebApplication.Models.Shops
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Shops</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.S_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.S_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.S_Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.S_Category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.S_ContactName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.S_ContactName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.S_ContactTel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.S_ContactTel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.S_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.S_Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.S_Remark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.S_Remark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.S_IsHasSetAdmin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.S_IsHasSetAdmin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.S_CreateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.S_CreateTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.S_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

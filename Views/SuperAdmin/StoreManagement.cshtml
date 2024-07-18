@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "StoreManagement";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <table id="ShopsTable"></table>
+</div>
+<script>
+    function LoadShopsTable() {
+
+        $("#ShopsTable").bootstrapTable({
+            url: "/SuperAdmin/GetShopsInfo",
+            striped: true, //是否显示行间隔色
+            pageNumber: 1,
+            pagination: true,
+            sidePagination: 'server',//server:服务器端分页|client：前端分页
+            totalField: 'total',
+            pageSize: 10,
+            paginationShowPageGo: true,//是否跳转页码，这个需要扩展bootstrapTable.js插件，本身不支持
+            pageList: [0],//可选择单页记录数
+
+            queryParams: function (params) {
+                var temp = {
+                    limit: params.limit,
+                    offset: params.offset,
+                   /* page : (params.offset / params.limit) + 1,*/
+                };
+                return temp;
+            },
+
+            columns: [{
+                title: 'S_ID',
+                field: 'S_ID'
+            }, {
+                title: 'S_Name',
+                field: 'S_Name'
+            }, {
+                title: 'S_Address',
+                field: 'S_Address'
+            }],
+        })
+    }; 
+
+    $(function () {
+         LoadShopsTable();
+
+    });
+
+</script>
+

@@ -264,3 +264,30 @@ CREATE TABLE ExchangLogs (
     FOREIGN KEY (U_ID) REFERENCES Users(U_ID), -- Users表U_ID是主键  
 
 );
+
+INSERT INTO Shops (S_Name, S_Category, S_ContactName, S_ContactTel, S_Address, S_Remark, S_IsHasSetAdmin, S_CreateTime)  
+VALUES ('光谷步行街店', 1, '张三', '13800138000', '武汉市洪山区光谷步行街', '新店开业，优惠多多！', 1, '2023-04-01 08:00:00');  
+  
+INSERT INTO Shops (S_Name, S_Category, S_ContactName, S_ContactTel, S_Address, S_Remark, S_IsHasSetAdmin, S_CreateTime)  
+VALUES ('江汉路店', 1, '李四', '13900139000', '武汉市江汉区江汉路步行街', '老店新开，品质保证！', 1, '2023-04-05 10:00:00');  
+  
+INSERT INTO Shops (S_Name, S_Category, S_ContactName, S_ContactTel, S_Address, S_Remark, S_IsHasSetAdmin, S_CreateTime)  
+VALUES ('徐东大街店', 1, '王五', '13700137000', '武汉市武昌区徐东大街', '进口零食，应有尽有！', 1, '2023-04-10 12:00:00');  
+  
+INSERT INTO Shops (S_Name, S_Category, S_ContactName, S_ContactTel, S_Address, S_Remark, S_IsHasSetAdmin, S_CreateTime)  
+VALUES ('汉街店', 1, '赵六', '13600136000', '武汉市武昌区楚河汉街', '网红打卡地，零食也疯狂！', 1, '2023-04-15 14:00:00');  
+  
+INSERT INTO Shops (S_Name, S_Category, S_ContactName, S_ContactTel, S_Address, S_Remark, S_IsHasSetAdmin, S_CreateTime)  
+VALUES ('王家湾店', 1, '孙七', '13500135000', '武汉市汉阳区王家湾', '家庭聚会，零食必备！', 1, '2023-04-20 16:00:00');  
+  
+INSERT INTO Shops (S_Name, S_Category, S_ContactName, S_ContactTel, S_Address, S_Remark, S_IsHasSetAdmin, S_CreateTime)  
+VALUES ('青山和平大道店', 1, '周八', '13400134000', '武汉市青山区和平大道', '青山区首店，欢迎光临！', 1, '2023-04-25 18:00:00');  
+  
+INSERT INTO Shops (S_Name, S_Category, S_ContactName, S_ContactTel, S_Address, S_Remark, S_IsHasSetAdmin, S_CreateTime)  
+VALUES ('街道口店', 1, '吴九', '13300133000', '武汉市洪山区街道口', '学生最爱，价格亲民！', 1, '2023-05-01 20:00:00');  
+  
+INSERT INTO Shops (S_Name, S_Category, S_ContactName, S_ContactTel, S_Address, S_Remark, S_IsHasSetAdmin, S_CreateTime)  
+VALUES ('光谷广场店', 1, '郑十', '13200132000', '武汉市洪山区光谷广场', '购物天堂，零食满满！', 1, '2023-05-05 22:00:00');  
+
+select * from Shops
+  
