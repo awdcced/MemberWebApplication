@@ -24,7 +24,7 @@ namespace MemberWebApplication.Controllers
 
         public ActionResult GetShopsInfo(int limit, int offset)
         {
-
+            db.Configuration.ProxyCreationEnabled = false;
             var totalCount = db.Shops.Count();
             var shops = db.Shops
                 .OrderBy(s => s.S_ID)

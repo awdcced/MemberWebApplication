@@ -24,26 +24,32 @@
                 var temp = {
                     limit: params.limit,
                     offset: params.offset,
-                   /* page : (params.offset / params.limit) + 1,*/
+                    /* page : (params.offset / params.limit) + 1,*/
                 };
                 return temp;
             },
 
             columns: [{
-                title: 'S_ID',
+                title: '编号',
                 field: 'S_ID'
             }, {
-                title: 'S_Name',
-                field: 'S_Name'
+                title: '店铺类型',
+                field: 'S_Category'
             }, {
-                title: 'S_Address',
+                title: '联系人',
+                field: 'S_ContactName'
+            }, {
+                title: '联系人电话',
+                field: 'S_ContactTel'
+            }, {
+                title: '地址',
                 field: 'S_Address'
-            }],
+            }, ],
         })
-    }; 
+    };
 
     $(function () {
-         LoadShopsTable();
+        LoadShopsTable();
 
     });
 

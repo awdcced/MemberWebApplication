@@ -13,18 +13,43 @@
     <script src="~/Scripts/bootstrap-table.js"></script>
     <script src="~/Scripts/bootstrap-table-zh-CN.js"></script>
     <link href="~/Content/bootstrap-table.css" rel="stylesheet" />
+    <style>
+        #layout-sidenav {
+            width: 20%
+        }
+
+        #layout-container {
+            width: 80%
+        }
+    </style>
     <script>
         $(function () {
-            $("#NavButton").bind("click", function () {
-                $("#layout-sidenav").collapse("toggle").promise(function () {
-                    this.toggleClass("col-2")
-                    
-                })
-                $("#layout-container").toggleClass("col-10").toggleClass("col-12")
-               
-                
-            })
-
+            $("#toggle-sidenav").bind("click", function () {
+                var sidenav = $('#layout-sidenav');
+                var mainContent = $('#layout-container');
+                // 检查侧边栏是否已折叠
+                if (sidenav.width() > 0) {
+                    $('#layout-sidenav').hide("0", function () {
+                        sidenav.animate({
+                            width: '0'
+                        }, 0, function () {
+                            mainContent.animate({
+                                width: '100%'
+                            }, 500)
+                        });
+                    });
+                } else {
+                    sidenav.animate({
+                        width: '20%' 
+                    }, 0, function () {
+                        mainContent.animate({
+                            width: '80%'
+                        }, 500, function () {
+                            $('#layout-sidenav').show("slow");
+                        })
+                    });
+                }
+            });
         });
     </script>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -92,13 +117,13 @@
 <body>
     <div id="layout-wrapper" class="container-fluid">
         <nav>
-            <a id="NavButton" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom"data-bs-toggle="collapse" data-bs-target="#NavList" aria-expanded="true">
+            <a id="toggle-sidenav" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom" data-bs-toggle="collapse" data-bs-target="#NavList" aria-expanded="true">
                 <svg class="bi me-2" width="40" height="40"><use xlink:href="#bootstrap" /></svg>
                 <span class="fs-6 fw-semibold">会员商店管理系统</span>
             </a>
         </nav>
         <div id="layout-inner" class="row">
-            <div id="layout-sidenav" class="col-2 show">
+            <div id="layout-sidenav" class="show">
                 <div class="flex-shrink-0 bg-white mx-auto" style="width: 100%;">
                     <ul id="NavsList" class="list-unstyled ps-0 ">
                         <li class="mb-1">
@@ -157,7 +182,7 @@
                 </div>
 
             </div>
-            <div id="layout-container" class="col-10">
+            <div id="layout-container" class="">
                 @RenderBody()
             </div>
         </div>
