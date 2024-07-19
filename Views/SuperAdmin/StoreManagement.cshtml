@@ -1,6 +1,7 @@
 ﻿
 @{
-    ViewBag.Title = "StoreManagement";
+    ViewBag.PageName = "StoreManagement";
+    ViewBag.Title = "店铺管理";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <style>
@@ -48,7 +49,7 @@
             <input type="text" class="col-2 form-control" name="name" value="" />
             <label class="form-label col-1">联系电话</label>
             <input type="text" class="col-2 form-control" name="name" value="" />
-            <button class="col-1 mx-5 px-2 btn btn-info"><svg class="bi me-2 my-auto" width="18" height="18"><use xlink:href="#Select" /></svg><lable class="fs-6 fw-semibold  align-middle">查询</lable></button>
+            <button class="col-1 mx-5 px-2 btn btn-info"><svg class="bi me-2 my-auto align-middle" width="18" height="18"><use xlink:href="#Select" /></svg><lable class="fs-6 fw-semibold align-middle">查询</lable></button>
         </div>
     </form>
     <table id="ShopsTable" class=""></table>
@@ -79,11 +80,15 @@
 
             columns: [{
                 radio: true,
+            }, {
                 title: '编号',
                 field: 'S_ID'
             }, {
+                title: '店铺名称',
+                field: 'S_Name'
+            }, {
                 title: '店铺类型',
-                field: 'S_Category'
+                field: 'CI_Name'
             }, {
                 title: '联系人',
                 field: 'S_ContactName'
@@ -93,11 +98,39 @@
             }, {
                 title: '地址',
                 field: 'S_Address'
+            },
+            {
+                title: '是否分配管理员',
+                field: 'S_IsHasSetAdmin',
+                formatter: function (value) {
+                    if (true) {
+                        return '是';
+                    } else {
+                        return '否';
+                    }
+                },
+            },
+            {
+                title: '创立时间',
+                field: 'S_CreateTime',
+                formatter: function (value) {
+                    var date = new Date(parseInt(value.replace(/\D/igm, "")));
+                    var year = date.getFullYear();
+                    var month = date.getMonth() + 1;
+                    var day = date.getDay();
+                    return year + "年" + month + "月" + day + "日";
+
+                },
             },],
         })
     };
 
     $(function () {
+        $("#@ViewBag.PageName").parent().parent().parent().collapse();
+        $("#@ViewBag.PageName").css({
+            color: 'rgba(0, 0, 0, .85)',
+            backgroundColor: '#d2f4ea'
+        });
         LoadShopsTable();
 
     });

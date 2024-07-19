@@ -4,9 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="15f50741d6924491a93c401a4e401f31" Name="Diagram1">
+      <Diagram DiagramId="119fc51a839e40d08915052a16eace9b" Name="Diagram1">
         <EntityTypeShape EntityType="MemberManagementSystemDBModel.CardLevels" Width="1.5" PointX="3.75" PointY="18.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MemberManagementSystemDBModel.Categories" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MemberManagementSystemDBModel.Categories" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="MemberManagementSystemDBModel.CategoryItems" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="MemberManagementSystemDBModel.ConsumptionOrders" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
         <EntityTypeShape EntityType="MemberManagementSystemDBModel.ExchangGifts" Width="1.5" PointX="3" PointY="14.375" IsExpanded="true" />
@@ -15,17 +15,17 @@
         <EntityTypeShape EntityType="MemberManagementSystemDBModel.Shops" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MemberManagementSystemDBModel.TransferLogs" Width="1.5" PointX="8.25" PointY="22.875" IsExpanded="true" />
         <EntityTypeShape EntityType="MemberManagementSystemDBModel.Users" Width="1.5" PointX="3" PointY="33" IsExpanded="true" />
-        <AssociationConnector Association="MemberManagementSystemDBModel.FK__MemCards__CL_ID__440B1D61" ManuallyRouted="false" />
-        <AssociationConnector Association="MemberManagementSystemDBModel.FK__CategoryI__C_Cat__398D8EEE" ManuallyRouted="false" />
-        <AssociationConnector Association="MemberManagementSystemDBModel.FK__Consumpti__MC_ID__4AB81AF0" ManuallyRouted="false" />
-        <AssociationConnector Association="MemberManagementSystemDBModel.FK__Consumptio__S_ID__4BAC3F29" ManuallyRouted="false" />
-        <AssociationConnector Association="MemberManagementSystemDBModel.FK__ExchangGif__S_ID__47DBAE45" ManuallyRouted="false" />
-        <AssociationConnector Association="MemberManagementSystemDBModel.FK__ExchangLog__S_ID__5441852A" ManuallyRouted="false" />
-        <AssociationConnector Association="MemberManagementSystemDBModel.FK__ExchangLog__U_ID__5535A963" ManuallyRouted="false" />
-        <AssociationConnector Association="MemberManagementSystemDBModel.FK__MemCards__S_ID__44FF419A" ManuallyRouted="false" />
-        <AssociationConnector Association="MemberManagementSystemDBModel.FK__TransferLo__S_ID__4F7CD00D" ManuallyRouted="false" />
-        <AssociationConnector Association="MemberManagementSystemDBModel.FK__Users__S_ID__3E52440B" ManuallyRouted="false" />
-        <AssociationConnector Association="MemberManagementSystemDBModel.FK__TransferLo__U_ID__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="MemberManagementSystemDBModel.FK__MemCards__CL_ID__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="MemberManagementSystemDBModel.FK__CategoryI__C_Cat__1273C1CD" ManuallyRouted="false" />
+        <AssociationConnector Association="MemberManagementSystemDBModel.FK__Consumpti__MC_ID__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="MemberManagementSystemDBModel.FK__Consumptio__S_ID__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="MemberManagementSystemDBModel.FK__ExchangGif__S_ID__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="MemberManagementSystemDBModel.FK__ExchangLog__S_ID__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="MemberManagementSystemDBModel.FK__ExchangLog__U_ID__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="MemberManagementSystemDBModel.FK__MemCards__S_ID__1DE57479" ManuallyRouted="false" />
+        <AssociationConnector Association="MemberManagementSystemDBModel.FK__TransferLo__S_ID__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="MemberManagementSystemDBModel.FK__Users__S_ID__173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="MemberManagementSystemDBModel.FK__TransferLo__U_ID__29572725" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

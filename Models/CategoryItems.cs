@@ -14,8 +14,9 @@ namespace MemberWebApplication.Models
     
     public partial class CategoryItems
     {
-        public int CI_ID { get; set; }
+        public int C_ID { get; set; }
         public string C_Category { get; set; }
+        public Nullable<int> CI_ID { get; set; }
         public string CI_Name { get; set; }
     
         public virtual Categories Categories { get; set; }

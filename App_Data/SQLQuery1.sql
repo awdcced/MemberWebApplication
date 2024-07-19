@@ -7,7 +7,7 @@ IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = N'MemberManagementSystem
 
 BEGIN  
 
-    CREATE DATABASE MemberManagementSystemDB;  
+    Create DATABASE MemberManagementSystemDB;  
 
 END  
 
@@ -32,10 +32,11 @@ CREATE TABLE Categories (
 -- 创建基础数据项表  
 
 CREATE TABLE CategoryItems (  
+    C_ID INT IDENTITY(1,1) PRIMARY KEY,
 
     C_Category VARCHAR(20),  
 
-    CI_ID INT IDENTITY(1,1) PRIMARY KEY,  
+    CI_ID INT ,  
 
     CI_Name VARCHAR(20),  
 
@@ -264,6 +265,33 @@ CREATE TABLE ExchangLogs (
     FOREIGN KEY (U_ID) REFERENCES Users(U_ID), -- Users表U_ID是主键  
 
 );
+CREATE TABLE Categories (  
+
+    C_Category VARCHAR(20) PRIMARY KEY,  
+
+    C_Illustration VARCHAR(20),  
+
+    C_IsShow BIT  
+
+);  
+INSERT INTO Categories VALUES('S_Category','店铺类型',1)
+INSERT INTO Categories VALUES('U_Role','身份',1)
+INSERT INTO Categories VALUES('MC_State','会员状态',1)
+INSERT INTO Categories VALUES('CO_OrderType','积分操作类型',1)
+INSERT INTO CategoryItems VALUES('S_Category',1,'总部')
+INSERT INTO CategoryItems VALUES('S_Category',2,'加盟店')
+INSERT INTO CategoryItems VALUES('S_Category',3,'直营店')
+INSERT INTO CategoryItems VALUES('U_Role',1,'系统管理员')
+INSERT INTO CategoryItems VALUES('U_Role',2,'店长')
+INSERT INTO CategoryItems VALUES('U_Role',3,'业务员')
+INSERT INTO CategoryItems VALUES('MC_State',1,'正常')
+INSERT INTO CategoryItems VALUES('MC_State',2,'挂失')
+INSERT INTO CategoryItems VALUES('MC_State',3,'锁定')
+INSERT INTO CategoryItems VALUES('CO_OrderType',1,'兑换积分')
+INSERT INTO CategoryItems VALUES('CO_OrderType',2,'积分返现')
+INSERT INTO CategoryItems VALUES('CO_OrderType',3,'减积分')
+INSERT INTO CategoryItems VALUES('CO_OrderType',4,'转介绍积分')
+INSERT INTO CategoryItems VALUES('CO_OrderType',5,'快速消费')
 
 INSERT INTO Shops (S_Name, S_Category, S_ContactName, S_ContactTel, S_Address, S_Remark, S_IsHasSetAdmin, S_CreateTime)  
 VALUES ('光谷步行街店', 1, '张三', '13800138000', '武汉市洪山区光谷步行街', '新店开业，优惠多多！', 1, '2023-04-01 08:00:00');  

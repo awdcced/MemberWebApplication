@@ -25,10 +25,11 @@
         </EntityType>
         <EntityType Name="CategoryItems">
           <Key>
-            <PropertyRef Name="CI_ID" />
+            <PropertyRef Name="C_ID" />
           </Key>
-          <Property Name="CI_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="C_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="C_Category" Type="varchar" MaxLength="20" />
+          <Property Name="CI_ID" Type="int" />
           <Property Name="CI_Name" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="ConsumptionOrders">
@@ -145,7 +146,7 @@
           <Property Name="U_Role" Type="int" />
           <Property Name="U_CanDelete" Type="bit" />
         </EntityType>
-        <Association Name="FK__CategoryI__C_Cat__398D8EEE">
+        <Association Name="FK__CategoryI__C_Cat__1273C1CD">
           <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
           <End Role="CategoryItems" Type="Self.CategoryItems" Multiplicity="*" />
           <ReferentialConstraint>
@@ -157,7 +158,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Consumpti__MC_ID__4AB81AF0">
+        <Association Name="FK__Consumpti__MC_ID__239E4DCF">
           <End Role="MemCards" Type="Self.MemCards" Multiplicity="0..1" />
           <End Role="ConsumptionOrders" Type="Self.ConsumptionOrders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -169,7 +170,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Consumptio__S_ID__4BAC3F29">
+        <Association Name="FK__Consumptio__S_ID__24927208">
           <End Role="Shops" Type="Self.Shops" Multiplicity="0..1" />
           <End Role="ConsumptionOrders" Type="Self.ConsumptionOrders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -181,7 +182,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ExchangGif__S_ID__47DBAE45">
+        <Association Name="FK__ExchangGif__S_ID__20C1E124">
           <End Role="Shops" Type="Self.Shops" Multiplicity="0..1" />
           <End Role="ExchangGifts" Type="Self.ExchangGifts" Multiplicity="*" />
           <ReferentialConstraint>
@@ -193,7 +194,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ExchangLog__S_ID__5441852A">
+        <Association Name="FK__ExchangLog__S_ID__2D27B809">
           <End Role="Shops" Type="Self.Shops" Multiplicity="1" />
           <End Role="ExchangLogs" Type="Self.ExchangLogs" Multiplicity="*" />
           <ReferentialConstraint>
@@ -205,7 +206,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ExchangLog__U_ID__5535A963">
+        <Association Name="FK__ExchangLog__U_ID__2E1BDC42">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="ExchangLogs" Type="Self.ExchangLogs" Multiplicity="*" />
           <ReferentialConstraint>
@@ -217,7 +218,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__MemCards__CL_ID__440B1D61">
+        <Association Name="FK__MemCards__CL_ID__1CF15040">
           <End Role="CardLevels" Type="Self.CardLevels" Multiplicity="0..1" />
           <End Role="MemCards" Type="Self.MemCards" Multiplicity="*" />
           <ReferentialConstraint>
@@ -229,7 +230,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__MemCards__S_ID__44FF419A">
+        <Association Name="FK__MemCards__S_ID__1DE57479">
           <End Role="Shops" Type="Self.Shops" Multiplicity="0..1" />
           <End Role="MemCards" Type="Self.MemCards" Multiplicity="*" />
           <ReferentialConstraint>
@@ -241,7 +242,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__TransferLo__S_ID__4F7CD00D">
+        <Association Name="FK__TransferLo__S_ID__286302EC">
           <End Role="Shops" Type="Self.Shops" Multiplicity="1" />
           <End Role="TransferLogs" Type="Self.TransferLogs" Multiplicity="*" />
           <ReferentialConstraint>
@@ -253,7 +254,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__TransferLo__U_ID__5070F446">
+        <Association Name="FK__TransferLo__U_ID__29572725">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="TransferLogs" Type="Self.TransferLogs" Multiplicity="*" />
           <ReferentialConstraint>
@@ -265,7 +266,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Users__S_ID__3E52440B">
+        <Association Name="FK__Users__S_ID__173876EA">
           <End Role="Shops" Type="Self.Shops" Multiplicity="0..1" />
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
@@ -288,47 +289,47 @@
           <EntitySet Name="Shops" EntityType="Self.Shops" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TransferLogs" EntityType="Self.TransferLogs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__CategoryI__C_Cat__398D8EEE" Association="Self.FK__CategoryI__C_Cat__398D8EEE">
+          <AssociationSet Name="FK__CategoryI__C_Cat__1273C1CD" Association="Self.FK__CategoryI__C_Cat__1273C1CD">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="CategoryItems" EntitySet="CategoryItems" />
           </AssociationSet>
-          <AssociationSet Name="FK__Consumpti__MC_ID__4AB81AF0" Association="Self.FK__Consumpti__MC_ID__4AB81AF0">
+          <AssociationSet Name="FK__Consumpti__MC_ID__239E4DCF" Association="Self.FK__Consumpti__MC_ID__239E4DCF">
             <End Role="MemCards" EntitySet="MemCards" />
             <End Role="ConsumptionOrders" EntitySet="ConsumptionOrders" />
           </AssociationSet>
-          <AssociationSet Name="FK__Consumptio__S_ID__4BAC3F29" Association="Self.FK__Consumptio__S_ID__4BAC3F29">
+          <AssociationSet Name="FK__Consumptio__S_ID__24927208" Association="Self.FK__Consumptio__S_ID__24927208">
             <End Role="Shops" EntitySet="Shops" />
             <End Role="ConsumptionOrders" EntitySet="ConsumptionOrders" />
           </AssociationSet>
-          <AssociationSet Name="FK__ExchangGif__S_ID__47DBAE45" Association="Self.FK__ExchangGif__S_ID__47DBAE45">
+          <AssociationSet Name="FK__ExchangGif__S_ID__20C1E124" Association="Self.FK__ExchangGif__S_ID__20C1E124">
             <End Role="Shops" EntitySet="Shops" />
             <End Role="ExchangGifts" EntitySet="ExchangGifts" />
           </AssociationSet>
-          <AssociationSet Name="FK__ExchangLog__S_ID__5441852A" Association="Self.FK__ExchangLog__S_ID__5441852A">
+          <AssociationSet Name="FK__ExchangLog__S_ID__2D27B809" Association="Self.FK__ExchangLog__S_ID__2D27B809">
             <End Role="Shops" EntitySet="Shops" />
             <End Role="ExchangLogs" EntitySet="ExchangLogs" />
           </AssociationSet>
-          <AssociationSet Name="FK__ExchangLog__U_ID__5535A963" Association="Self.FK__ExchangLog__U_ID__5535A963">
+          <AssociationSet Name="FK__ExchangLog__U_ID__2E1BDC42" Association="Self.FK__ExchangLog__U_ID__2E1BDC42">
             <End Role="Users" EntitySet="Users" />
             <End Role="ExchangLogs" EntitySet="ExchangLogs" />
           </AssociationSet>
-          <AssociationSet Name="FK__MemCards__CL_ID__440B1D61" Association="Self.FK__MemCards__CL_ID__440B1D61">
+          <AssociationSet Name="FK__MemCards__CL_ID__1CF15040" Association="Self.FK__MemCards__CL_ID__1CF15040">
             <End Role="CardLevels" EntitySet="CardLevels" />
             <End Role="MemCards" EntitySet="MemCards" />
           </AssociationSet>
-          <AssociationSet Name="FK__MemCards__S_ID__44FF419A" Association="Self.FK__MemCards__S_ID__44FF419A">
+          <AssociationSet Name="FK__MemCards__S_ID__1DE57479" Association="Self.FK__MemCards__S_ID__1DE57479">
             <End Role="Shops" EntitySet="Shops" />
             <End Role="MemCards" EntitySet="MemCards" />
           </AssociationSet>
-          <AssociationSet Name="FK__TransferLo__S_ID__4F7CD00D" Association="Self.FK__TransferLo__S_ID__4F7CD00D">
+          <AssociationSet Name="FK__TransferLo__S_ID__286302EC" Association="Self.FK__TransferLo__S_ID__286302EC">
             <End Role="Shops" EntitySet="Shops" />
             <End Role="TransferLogs" EntitySet="TransferLogs" />
           </AssociationSet>
-          <AssociationSet Name="FK__TransferLo__U_ID__5070F446" Association="Self.FK__TransferLo__U_ID__5070F446">
+          <AssociationSet Name="FK__TransferLo__U_ID__29572725" Association="Self.FK__TransferLo__U_ID__29572725">
             <End Role="Users" EntitySet="Users" />
             <End Role="TransferLogs" EntitySet="TransferLogs" />
           </AssociationSet>
-          <AssociationSet Name="FK__Users__S_ID__3E52440B" Association="Self.FK__Users__S_ID__3E52440B">
+          <AssociationSet Name="FK__Users__S_ID__173876EA" Association="Self.FK__Users__S_ID__173876EA">
             <End Role="Shops" EntitySet="Shops" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
@@ -347,7 +348,7 @@
           <Property Name="CL_NeedPoint" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CL_Point" Type="Double" />
           <Property Name="CL_Percent" Type="Double" />
-          <NavigationProperty Name="MemCards" Relationship="Self.FK__MemCards__CL_ID__440B1D61" FromRole="CardLevels" ToRole="MemCards" />
+          <NavigationProperty Name="MemCards" Relationship="Self.FK__MemCards__CL_ID__1CF15040" FromRole="CardLevels" ToRole="MemCards" />
         </EntityType>
         <EntityType Name="Categories">
           <Key>
@@ -356,16 +357,17 @@
           <Property Name="C_Category" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="C_Illustration" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="C_IsShow" Type="Boolean" />
-          <NavigationProperty Name="CategoryItems" Relationship="Self.FK__CategoryI__C_Cat__398D8EEE" FromRole="Categories" ToRole="CategoryItems" />
+          <NavigationProperty Name="CategoryItems" Relationship="Self.FK__CategoryI__C_Cat__1273C1CD" FromRole="Categories" ToRole="CategoryItems" />
         </EntityType>
         <EntityType Name="CategoryItems">
           <Key>
-            <PropertyRef Name="CI_ID" />
+            <PropertyRef Name="C_ID" />
           </Key>
-          <Property Name="CI_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="C_Category" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CI_ID" Type="Int32" />
           <Property Name="CI_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Categories" Relationship="Self.FK__CategoryI__C_Cat__398D8EEE" FromRole="CategoryItems" ToRole="Categories" />
+          <NavigationProperty Name="Categories" Relationship="Self.FK__CategoryI__C_Cat__1273C1CD" FromRole="CategoryItems" ToRole="Categories" />
         </EntityType>
         <EntityType Name="ConsumptionOrders">
           <Key>
@@ -377,8 +379,8 @@
           <Property Name="CO_TotalPrice" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="CO_CreateTime" Type="DateTime" Precision="3" />
           <Property Name="CO_Status" Type="Byte" />
-          <NavigationProperty Name="MemCards" Relationship="Self.FK__Consumpti__MC_ID__4AB81AF0" FromRole="ConsumptionOrders" ToRole="MemCards" />
-          <NavigationProperty Name="Shops" Relationship="Self.FK__Consumptio__S_ID__4BAC3F29" FromRole="ConsumptionOrders" ToRole="Shops" />
+          <NavigationProperty Name="MemCards" Relationship="Self.FK__Consumpti__MC_ID__239E4DCF" FromRole="ConsumptionOrders" ToRole="MemCards" />
+          <NavigationProperty Name="Shops" Relationship="Self.FK__Consumptio__S_ID__24927208" FromRole="ConsumptionOrders" ToRole="Shops" />
         </EntityType>
         <EntityType Name="ExchangGifts">
           <Key>
@@ -393,7 +395,7 @@
           <Property Name="EG_Number" Type="Int32" />
           <Property Name="EG_ExchangNum" Type="Int32" />
           <Property Name="EG_Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Shops" Relationship="Self.FK__ExchangGif__S_ID__47DBAE45" FromRole="ExchangGifts" ToRole="Shops" />
+          <NavigationProperty Name="Shops" Relationship="Self.FK__ExchangGif__S_ID__20C1E124" FromRole="ExchangGifts" ToRole="Shops" />
         </EntityType>
         <EntityType Name="ExchangLogs">
           <Key>
@@ -411,8 +413,8 @@
           <Property Name="EL_Number" Type="Int32" Nullable="false" />
           <Property Name="EL_Point" Type="Int32" Nullable="false" />
           <Property Name="EL_CreateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Shops" Relationship="Self.FK__ExchangLog__S_ID__5441852A" FromRole="ExchangLogs" ToRole="Shops" />
-          <NavigationProperty Name="Users" Relationship="Self.FK__ExchangLog__U_ID__5535A963" FromRole="ExchangLogs" ToRole="Users" />
+          <NavigationProperty Name="Shops" Relationship="Self.FK__ExchangLog__S_ID__2D27B809" FromRole="ExchangLogs" ToRole="Shops" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__ExchangLog__U_ID__2E1BDC42" FromRole="ExchangLogs" ToRole="Users" />
         </EntityType>
         <EntityType Name="MemCards">
           <Key>
@@ -442,9 +444,9 @@
           <Property Name="MC_RefererCard" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MC_RefererName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="MC_CreateTime" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="CardLevels" Relationship="Self.FK__MemCards__CL_ID__440B1D61" FromRole="MemCards" ToRole="CardLevels" />
-          <NavigationProperty Name="ConsumptionOrders" Relationship="Self.FK__Consumpti__MC_ID__4AB81AF0" FromRole="MemCards" ToRole="ConsumptionOrders" />
-          <NavigationProperty Name="Shops" Relationship="Self.FK__MemCards__S_ID__44FF419A" FromRole="MemCards" ToRole="Shops" />
+          <NavigationProperty Name="CardLevels" Relationship="Self.FK__MemCards__CL_ID__1CF15040" FromRole="MemCards" ToRole="CardLevels" />
+          <NavigationProperty Name="ConsumptionOrders" Relationship="Self.FK__Consumpti__MC_ID__239E4DCF" FromRole="MemCards" ToRole="ConsumptionOrders" />
+          <NavigationProperty Name="Shops" Relationship="Self.FK__MemCards__S_ID__1DE57479" FromRole="MemCards" ToRole="Shops" />
         </EntityType>
         <EntityType Name="Shops">
           <Key>
@@ -459,12 +461,12 @@
           <Property Name="S_Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="S_IsHasSetAdmin" Type="Boolean" />
           <Property Name="S_CreateTime" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="ConsumptionOrders" Relationship="Self.FK__Consumptio__S_ID__4BAC3F29" FromRole="Shops" ToRole="ConsumptionOrders" />
-          <NavigationProperty Name="ExchangGifts" Relationship="Self.FK__ExchangGif__S_ID__47DBAE45" FromRole="Shops" ToRole="ExchangGifts" />
-          <NavigationProperty Name="ExchangLogs" Relationship="Self.FK__ExchangLog__S_ID__5441852A" FromRole="Shops" ToRole="ExchangLogs" />
-          <NavigationProperty Name="MemCards" Relationship="Self.FK__MemCards__S_ID__44FF419A" FromRole="Shops" ToRole="MemCards" />
-          <NavigationProperty Name="TransferLogs" Relationship="Self.FK__TransferLo__S_ID__4F7CD00D" FromRole="Shops" ToRole="TransferLogs" />
-          <NavigationProperty Name="Users" Relationship="Self.FK__Users__S_ID__3E52440B" FromRole="Shops" ToRole="Users" />
+          <NavigationProperty Name="ConsumptionOrders" Relationship="Self.FK__Consumptio__S_ID__24927208" FromRole="Shops" ToRole="ConsumptionOrders" />
+          <NavigationProperty Name="ExchangGifts" Relationship="Self.FK__ExchangGif__S_ID__20C1E124" FromRole="Shops" ToRole="ExchangGifts" />
+          <NavigationProperty Name="ExchangLogs" Relationship="Self.FK__ExchangLog__S_ID__2D27B809" FromRole="Shops" ToRole="ExchangLogs" />
+          <NavigationProperty Name="MemCards" Relationship="Self.FK__MemCards__S_ID__1DE57479" FromRole="Shops" ToRole="MemCards" />
+          <NavigationProperty Name="TransferLogs" Relationship="Self.FK__TransferLo__S_ID__286302EC" FromRole="Shops" ToRole="TransferLogs" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__S_ID__173876EA" FromRole="Shops" ToRole="Users" />
         </EntityType>
         <EntityType Name="TransferLogs">
           <Key>
@@ -480,8 +482,8 @@
           <Property Name="TL_TransferMoney" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="TL_Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="TL_CreateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Shops" Relationship="Self.FK__TransferLo__S_ID__4F7CD00D" FromRole="TransferLogs" ToRole="Shops" />
-          <NavigationProperty Name="Users" Relationship="Self.FK__TransferLo__U_ID__5070F446" FromRole="TransferLogs" ToRole="Users" />
+          <NavigationProperty Name="Shops" Relationship="Self.FK__TransferLo__S_ID__286302EC" FromRole="TransferLogs" ToRole="Shops" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__TransferLo__U_ID__29572725" FromRole="TransferLogs" ToRole="Users" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -496,11 +498,11 @@
           <Property Name="U_Telephone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="U_Role" Type="Int32" />
           <Property Name="U_CanDelete" Type="Boolean" />
-          <NavigationProperty Name="ExchangLogs" Relationship="Self.FK__ExchangLog__U_ID__5535A963" FromRole="Users" ToRole="ExchangLogs" />
-          <NavigationProperty Name="Shops" Relationship="Self.FK__Users__S_ID__3E52440B" FromRole="Users" ToRole="Shops" />
-          <NavigationProperty Name="TransferLogs" Relationship="Self.FK__TransferLo__U_ID__5070F446" FromRole="Users" ToRole="TransferLogs" />
+          <NavigationProperty Name="ExchangLogs" Relationship="Self.FK__ExchangLog__U_ID__2E1BDC42" FromRole="Users" ToRole="ExchangLogs" />
+          <NavigationProperty Name="Shops" Relationship="Self.FK__Users__S_ID__173876EA" FromRole="Users" ToRole="Shops" />
+          <NavigationProperty Name="TransferLogs" Relationship="Self.FK__TransferLo__U_ID__29572725" FromRole="Users" ToRole="TransferLogs" />
         </EntityType>
-        <Association Name="FK__MemCards__CL_ID__440B1D61">
+        <Association Name="FK__MemCards__CL_ID__1CF15040">
           <End Role="CardLevels" Type="Self.CardLevels" Multiplicity="0..1" />
           <End Role="MemCards" Type="Self.MemCards" Multiplicity="*" />
           <ReferentialConstraint>
@@ -512,7 +514,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CategoryI__C_Cat__398D8EEE">
+        <Association Name="FK__CategoryI__C_Cat__1273C1CD">
           <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
           <End Role="CategoryItems" Type="Self.CategoryItems" Multiplicity="*" />
           <ReferentialConstraint>
@@ -524,7 +526,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Consumpti__MC_ID__4AB81AF0">
+        <Association Name="FK__Consumpti__MC_ID__239E4DCF">
           <End Role="MemCards" Type="Self.MemCards" Multiplicity="0..1" />
           <End Role="ConsumptionOrders" Type="Self.ConsumptionOrders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -536,7 +538,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Consumptio__S_ID__4BAC3F29">
+        <Association Name="FK__Consumptio__S_ID__24927208">
           <End Role="Shops" Type="Self.Shops" Multiplicity="0..1" />
           <End Role="ConsumptionOrders" Type="Self.ConsumptionOrders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -548,7 +550,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ExchangGif__S_ID__47DBAE45">
+        <Association Name="FK__ExchangGif__S_ID__20C1E124">
           <End Role="Shops" Type="Self.Shops" Multiplicity="0..1" />
           <End Role="ExchangGifts" Type="Self.ExchangGifts" Multiplicity="*" />
           <ReferentialConstraint>
@@ -560,7 +562,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ExchangLog__S_ID__5441852A">
+        <Association Name="FK__ExchangLog__S_ID__2D27B809">
           <End Role="Shops" Type="Self.Shops" Multiplicity="1" />
           <End Role="ExchangLogs" Type="Self.ExchangLogs" Multiplicity="*" />
           <ReferentialConstraint>
@@ -572,7 +574,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ExchangLog__U_ID__5535A963">
+        <Association Name="FK__ExchangLog__U_ID__2E1BDC42">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="ExchangLogs" Type="Self.ExchangLogs" Multiplicity="*" />
           <ReferentialConstraint>
@@ -584,7 +586,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__MemCards__S_ID__44FF419A">
+        <Association Name="FK__MemCards__S_ID__1DE57479">
           <End Role="Shops" Type="Self.Shops" Multiplicity="0..1" />
           <End Role="MemCards" Type="Self.MemCards" Multiplicity="*" />
           <ReferentialConstraint>
@@ -596,7 +598,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__TransferLo__S_ID__4F7CD00D">
+        <Association Name="FK__TransferLo__S_ID__286302EC">
           <End Role="Shops" Type="Self.Shops" Multiplicity="1" />
           <End Role="TransferLogs" Type="Self.TransferLogs" Multiplicity="*" />
           <ReferentialConstraint>
@@ -608,7 +610,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Users__S_ID__3E52440B">
+        <Association Name="FK__Users__S_ID__173876EA">
           <End Role="Shops" Type="Self.Shops" Multiplicity="0..1" />
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
@@ -620,7 +622,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__TransferLo__U_ID__5070F446">
+        <Association Name="FK__TransferLo__U_ID__29572725">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="TransferLogs" Type="Self.TransferLogs" Multiplicity="*" />
           <ReferentialConstraint>
@@ -643,47 +645,47 @@
           <EntitySet Name="Shops" EntityType="Self.Shops" />
           <EntitySet Name="TransferLogs" EntityType="Self.TransferLogs" />
           <EntitySet Name="Users" EntityType="Self.Users" />
-          <AssociationSet Name="FK__MemCards__CL_ID__440B1D61" Association="Self.FK__MemCards__CL_ID__440B1D61">
+          <AssociationSet Name="FK__MemCards__CL_ID__1CF15040" Association="Self.FK__MemCards__CL_ID__1CF15040">
             <End Role="CardLevels" EntitySet="CardLevels" />
             <End Role="MemCards" EntitySet="MemCards" />
           </AssociationSet>
-          <AssociationSet Name="FK__CategoryI__C_Cat__398D8EEE" Association="Self.FK__CategoryI__C_Cat__398D8EEE">
+          <AssociationSet Name="FK__CategoryI__C_Cat__1273C1CD" Association="Self.FK__CategoryI__C_Cat__1273C1CD">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="CategoryItems" EntitySet="CategoryItems" />
           </AssociationSet>
-          <AssociationSet Name="FK__Consumpti__MC_ID__4AB81AF0" Association="Self.FK__Consumpti__MC_ID__4AB81AF0">
+          <AssociationSet Name="FK__Consumpti__MC_ID__239E4DCF" Association="Self.FK__Consumpti__MC_ID__239E4DCF">
             <End Role="MemCards" EntitySet="MemCards" />
             <End Role="ConsumptionOrders" EntitySet="ConsumptionOrders" />
           </AssociationSet>
-          <AssociationSet Name="FK__Consumptio__S_ID__4BAC3F29" Association="Self.FK__Consumptio__S_ID__4BAC3F29">
+          <AssociationSet Name="FK__Consumptio__S_ID__24927208" Association="Self.FK__Consumptio__S_ID__24927208">
             <End Role="Shops" EntitySet="Shops" />
             <End Role="ConsumptionOrders" EntitySet="ConsumptionOrders" />
           </AssociationSet>
-          <AssociationSet Name="FK__ExchangGif__S_ID__47DBAE45" Association="Self.FK__ExchangGif__S_ID__47DBAE45">
+          <AssociationSet Name="FK__ExchangGif__S_ID__20C1E124" Association="Self.FK__ExchangGif__S_ID__20C1E124">
             <End Role="Shops" EntitySet="Shops" />
             <End Role="ExchangGifts" EntitySet="ExchangGifts" />
           </AssociationSet>
-          <AssociationSet Name="FK__ExchangLog__S_ID__5441852A" Association="Self.FK__ExchangLog__S_ID__5441852A">
+          <AssociationSet Name="FK__ExchangLog__S_ID__2D27B809" Association="Self.FK__ExchangLog__S_ID__2D27B809">
             <End Role="Shops" EntitySet="Shops" />
             <End Role="ExchangLogs" EntitySet="ExchangLogs" />
           </AssociationSet>
-          <AssociationSet Name="FK__ExchangLog__U_ID__5535A963" Association="Self.FK__ExchangLog__U_ID__5535A963">
+          <AssociationSet Name="FK__ExchangLog__U_ID__2E1BDC42" Association="Self.FK__ExchangLog__U_ID__2E1BDC42">
             <End Role="Users" EntitySet="Users" />
             <End Role="ExchangLogs" EntitySet="ExchangLogs" />
           </AssociationSet>
-          <AssociationSet Name="FK__MemCards__S_ID__44FF419A" Association="Self.FK__MemCards__S_ID__44FF419A">
+          <AssociationSet Name="FK__MemCards__S_ID__1DE57479" Association="Self.FK__MemCards__S_ID__1DE57479">
             <End Role="Shops" EntitySet="Shops" />
             <End Role="MemCards" EntitySet="MemCards" />
           </AssociationSet>
-          <AssociationSet Name="FK__TransferLo__S_ID__4F7CD00D" Association="Self.FK__TransferLo__S_ID__4F7CD00D">
+          <AssociationSet Name="FK__TransferLo__S_ID__286302EC" Association="Self.FK__TransferLo__S_ID__286302EC">
             <End Role="Shops" EntitySet="Shops" />
             <End Role="TransferLogs" EntitySet="TransferLogs" />
           </AssociationSet>
-          <AssociationSet Name="FK__Users__S_ID__3E52440B" Association="Self.FK__Users__S_ID__3E52440B">
+          <AssociationSet Name="FK__Users__S_ID__173876EA" Association="Self.FK__Users__S_ID__173876EA">
             <End Role="Shops" EntitySet="Shops" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
-          <AssociationSet Name="FK__TransferLo__U_ID__5070F446" Association="Self.FK__TransferLo__U_ID__5070F446">
+          <AssociationSet Name="FK__TransferLo__U_ID__29572725" Association="Self.FK__TransferLo__U_ID__29572725">
             <End Role="Users" EntitySet="Users" />
             <End Role="TransferLogs" EntitySet="TransferLogs" />
           </AssociationSet>
@@ -717,8 +719,9 @@
           <EntitySetMapping Name="CategoryItems">
             <EntityTypeMapping TypeName="MemberManagementSystemDBModel.CategoryItems">
               <MappingFragment StoreEntitySet="CategoryItems">
-                <ScalarProperty Name="CI_ID" ColumnName="CI_ID" />
+                <ScalarProperty Name="C_ID" ColumnName="C_ID" />
                 <ScalarProperty Name="C_Category" ColumnName="C_Category" />
+                <ScalarProperty Name="CI_ID" ColumnName="CI_ID" />
                 <ScalarProperty Name="CI_Name" ColumnName="CI_Name" />
               </MappingFragment>
             </EntityTypeMapping>
