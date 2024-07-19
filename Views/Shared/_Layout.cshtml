@@ -9,17 +9,24 @@
     <script src="~/Scripts/bootstrap.bundle.js"></script>
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <link href="~/Content/Layout.css" rel="stylesheet" />
     <script src="~/Scripts/bootstrap-table.js"></script>
     <script src="~/Scripts/bootstrap-table-zh-CN.js"></script>
     <link href="~/Content/bootstrap-table.css" rel="stylesheet" />
+    <link href="~/Content/authentication.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-material.css" rel="stylesheet" />
+    <link href="~/Content/shreerang-material.css" rel="stylesheet" />
+    <link href="~/Content/uikit.css" rel="stylesheet" />
+    <link href="~/Content/Layout.css" rel="stylesheet" />
     <style>
         #layout-sidenav {
-            width: 20%
+            width: 15%;
+            height: 100%;
+            position: absolute;
         }
 
         #layout-container {
-            width: 80%
+            width: 85%;
+            margin-left: 15%
         }
     </style>
     <script>
@@ -34,16 +41,19 @@
                             width: '0'
                         }, 0, function () {
                             mainContent.animate({
-                                width: '100%'
+                                width: '100%',
+                                marginLeft: '0%'
                             }, 500)
                         });
                     });
                 } else {
                     sidenav.animate({
-                        width: '20%' 
+                        width: '15%'
                     }, 0, function () {
                         mainContent.animate({
-                            width: '80%'
+                            width: '85%',
+                            marginLeft: '15%'
+
                         }, 500, function () {
                             $('#layout-sidenav').show("slow");
                         })
@@ -116,65 +126,87 @@
 </head>
 <body>
     <div id="layout-wrapper" class="container-fluid">
-        <nav>
-            <a id="toggle-sidenav" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom" data-bs-toggle="collapse" data-bs-target="#NavList" aria-expanded="true">
-                <svg class="bi me-2" width="40" height="40"><use xlink:href="#bootstrap" /></svg>
+        <nav class="nav">
+            <a id="toggle-sidenav" class="d-flex align-items-center py-3 my-3 link-dark text-decoration-none">
                 <span class="fs-6 fw-semibold">会员商店管理系统</span>
             </a>
         </nav>
         <div id="layout-inner" class="row">
-            <div id="layout-sidenav" class="show">
-                <div class="flex-shrink-0 bg-white mx-auto" style="width: 100%;">
-                    <ul id="NavsList" class="list-unstyled ps-0 ">
-                        <li class="mb-1">
-                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-                                Home
+            <div id="layout-sidenav" class="">
+                <div class="mx-auto" style="width: 100%;">
+                    <ul class="list-unstyled ps-0 ms-3">
+                        @*系统*@
+                        <li class="mb-md-3">
+                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#shop-collapse" aria-expanded="true">
+                                系统管理
                             </button>
-                            <div class="collapse show" id="home-collapse">
+                            <div class="collapse show" id="shop-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <li><a href="#" class="link-dark rounded">Overview</a></li>
-                                    <li><a href="#" class="link-dark rounded">Updates</a></li>
-                                    <li><a href="#" class="link-dark rounded">Reports</a></li>
+                                    <li><a href="/SuperAdmin/StoreManagement" class="link-dark rounded">店铺管理</a></li>
+                                    <li><a href="#" class="link-dark rounded">会员等级管理</a></li>
                                 </ul>
                             </div>
                         </li>
-                        <li class="mb-1">
-                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-                                Dashboard
+                        @*礼品*@
+                        <li class="mb-md-3">
+                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#gift-collapse" aria-expanded="false">
+                                礼品管理
                             </button>
-                            <div class="collapse" id="dashboard-collapse">
+                            <div class="collapse" id="gift-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <li><a href="#" class="link-dark rounded">Overview</a></li>
-                                    <li><a href="#" class="link-dark rounded">Weekly</a></li>
-                                    <li><a href="#" class="link-dark rounded">Monthly</a></li>
-                                    <li><a href="#" class="link-dark rounded">Annually</a></li>
+                                    <li><a href="#" class="link-dark rounded">礼品管理</a></li>
                                 </ul>
                             </div>
                         </li>
-                        <li class="mb-1">
-                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-                                Orders
+                        @*会员*@
+                        <li class="mb-md-3">
+                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#member-collapse" aria-expanded="false">
+                                会员管理
                             </button>
-                            <div class="collapse" id="orders-collapse">
+                            <div class="collapse" id="member-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <li><a href="#" class="link-dark rounded">New</a></li>
-                                    <li><a href="#" class="link-dark rounded">Processed</a></li>
-                                    <li><a href="#" class="link-dark rounded">Shipped</a></li>
-                                    <li><a href="#" class="link-dark rounded">Returned</a></li>
+                                    <li><a href="#" class="link-dark rounded">会员管理</a></li>
                                 </ul>
                             </div>
                         </li>
-                        <li class="border-top my-3"></li>
-                        <li class="mb-1">
-                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-                                Account
+                        @*会员消费*@
+                        <li class="mb-md-3">
+                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#consumption-collapse" aria-expanded="false">
+                                会员消费
                             </button>
-                            <div class="collapse" id="account-collapse">
+                            <div class="collapse" id="consumption-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <li><a href="#" class="link-dark rounded">New...</a></li>
-                                    <li><a href="#" class="link-dark rounded">Profile</a></li>
-                                    <li><a href="#" class="link-dark rounded">Settings</a></li>
-                                    <li><a href="#" class="link-dark rounded">Sign out</a></li>
+                                    <li><a href="#" class="link-dark rounded">快速消费</a></li>
+                                    <li><a href="#" class="link-dark rounded">会员减积分</a></li>
+                                    <li><a href="#" class="link-dark rounded">消费历史记录</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        @*积分*@
+                        <li class="mb-md-3">
+                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#points-collapse" aria-expanded="false">
+                                积分兑换
+                            </button>
+                            <div class="collapse" id="points-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                    <li><a href="#" class="link-dark rounded">积分兑换礼品</a></li>
+                                    <li><a href="#" class="link-dark rounded">积分返现</a></li>
+                                    <li><a href="#" class="link-dark rounded">兑换历史记录</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        @*统计*@
+                        <li class="mb-md-3">
+                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#statistics-collapse" aria-expanded="false">
+                                统计中心
+                            </button>
+                            <div class="collapse" id="statistics-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                    <li><a href="#" class="link-dark rounded">快速消费统计</a></li>
+                                    <li><a href="#" class="link-dark rounded">会员消费情况统计</a></li>
+                                    <li><a href="#" class="link-dark rounded">减积分统计</a></li>
+                                    <li><a href="#" class="link-dark rounded">积分返现统计</a></li>
+                                    <li><a href="#" class="link-dark rounded">礼品兑换统计</a></li>
                                 </ul>
                             </div>
                         </li>
