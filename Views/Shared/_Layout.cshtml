@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - 我的 ASP.NET 应用程序</title>
+    <title>@ViewBag.PageName - 我的 ASP.NET 应用程序</title>
     <script src="~/Scripts/jquery-3.7.0.js"></script>
     <script src="~/Scripts/bootstrap.bundle.js"></script>
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
@@ -31,6 +31,11 @@
     </style>
     <script>
         $(function () {
+            $("#@ViewBag.Title").parent().parent().parent().collapse();
+            $("#@ViewBag.Title").css({
+                color: 'rgba(0, 0, 0, .85)',
+                backgroundColor: '#d2f4ea'
+            });
             $("#toggle-sidenav").bind("click", function () {
                 var sidenav = $('#layout-sidenav');
                 var mainContent = $('#layout-container');
@@ -142,7 +147,7 @@
                             </button>
                             <div class="collapse" id="shop-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <li><a id="StoreManagement"  href="/SuperAdmin/StoreManagement" class="link-dark rounded">店铺管理</a></li>
+                                    <li><a id="StoreManagement" href="/SuperAdmin/StoreManagement" class="link-dark rounded">店铺管理</a></li>
                                     <li><a href="#" class="link-dark rounded">会员等级管理</a></li>
                                 </ul>
                             </div>
@@ -154,7 +159,7 @@
                             </button>
                             <div class="collapse" id="gift-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <li><a href="#" class="link-dark rounded">礼品管理</a></li>
+                                    <li><a id="GiftManagement" href="#" class="link-dark rounded">礼品管理</a></li>
                                 </ul>
                             </div>
                         </li>

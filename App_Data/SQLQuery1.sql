@@ -7,7 +7,7 @@ IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = N'MemberManagementSystem
 
 BEGIN  
 
-    Create DATABASE MemberManagementSystemDB;  
+    Create DATABASE MemberManagementSystemDB;
 
 END  
 
@@ -34,9 +34,9 @@ CREATE TABLE Categories (
 CREATE TABLE CategoryItems (  
     C_ID INT IDENTITY(1,1) PRIMARY KEY,
 
-    C_Category VARCHAR(20),  
+    C_Category VARCHAR(20),
 
-    CI_ID INT ,  
+    CI_ID INT ,
 
     CI_Name VARCHAR(20),  
 
@@ -317,5 +317,37 @@ VALUES ('街道口店', 1, '吴九', '13300133000', '武汉市洪山区街道口
 INSERT INTO Shops (S_Name, S_Category, S_ContactName, S_ContactTel, S_Address, S_Remark, S_IsHasSetAdmin, S_CreateTime)  
 VALUES ('光谷广场店', 1, '郑十', '13200132000', '武汉市洪山区光谷广场', '购物天堂，零食满满！', 1, '2023-05-05 22:00:00');  
 
+-- 插入光谷步行街店的管理员用户  
+INSERT INTO Users  
+VALUES (1, 'zhangsan_admin', 'Password123', '张三', '1', '13800138000', 2, 1);  
+  
+-- 插入江汉路店的管理员用户  
+INSERT INTO Users 
+VALUES (2, 'lisi_admin', 'Password123', '李四', '1', '13900139000', 2, 1);  
+  
+-- 插入徐东大街店的管理员用户  
+INSERT INTO Users
+VALUES (3, 'wangwu_admin', 'Password123', '王五', '1', '13800137000', 2, 1);  
+  
+-- 插入汉街店的管理员用户  
+INSERT INTO Users
+VALUES (4, 'zhaoliu_admin', 'Password123', '赵六', '1', '13800136000', 2, 1);  
+  
+-- 插入王家湾店的管理员用户  
+INSERT INTO Users
+VALUES (5, 'sunqi_admin', 'Password123', '孙七',  '1', '13800135000', 2, 1);  
+  
+-- 插入青山和平大道店的管理员用户  
+INSERT INTO Users 
+VALUES (6, 'zhouba_admin', 'Password123', '周八', '1', '13800134000', 2, 1);  
+  
+-- 插入街道口店的管理员用户  
+INSERT INTO Users  
+VALUES (7, 'wujiu_admin', 'Password123', '吴九',  '1', '13800133000', 2, 1);  
+  
+-- 插入光谷广场店的管理员用户  
+INSERT INTO Users
+VALUES (8, 'zhengshi_admin', 'Password123', '郑十',  '1', '13800132000', 2, 1);
 select * from Shops
+select * from Users
   
