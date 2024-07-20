@@ -31,10 +31,19 @@
     </style>
     <script>
         $(function () {
+            $.ajax({
+                type: "get",
+                url: "/Common/GetSession",
+                dataType: "json",
+                success: function (result) {
+                    $("#UserName").html(result["U_RealName"])
+                    $("#UserRole").html(result["U_Role"])
+                }
+            })
             $("#@ViewBag.Title").parent().parent().parent().collapse();
             $("#@ViewBag.Title").css({
                 color: 'rgba(0, 0, 0, .85)',
-                backgroundColor: '#d2f4ea'
+                backgroundColor: '#1fdeee'
             });
             $("#toggle-sidenav").bind("click", function () {
                 var sidenav = $('#layout-sidenav');
@@ -126,21 +135,35 @@
         <symbol id="geo-fill" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z" />
         </symbol>
+        <symbol id="ico_UserName" viewBox="0 0 1024 1024">
+            <path d="M682.666667 256a170.666667 170.666667 0 1 1-341.333334 0 170.666667 170.666667 0 0 1 341.333334 0z m-64 0a106.666667 106.666667 0 1 0-213.333334 0 106.666667 106.666667 0 0 0 213.333334 0zM160 896a352 352 0 0 1 704 0h64c0-229.76-186.24-416-416-416S96 666.24 96 896h64z" fill="#000000" p-id="1972"></path>
+        </symbol>
+        <symbol id="ico_UserRole" viewBox="0 0 1024 1024">
+            <path d="M341.333333 469.333333a85.333333 85.333333 0 1 0 0-170.666666 85.333333 85.333333 0 0 0 0 170.666666zM175.914667 640.426667a170.752 170.752 0 0 1 330.794666 0c5.845333 22.826667-13.824 42.24-37.376 42.24H213.333333c-23.552 0-43.221333-19.413333-37.418666-42.24zM597.333333 309.333333a32 32 0 0 0 0 64h213.333334a32 32 0 0 0 0-64h-213.333334zM565.333333 490.666667a32 32 0 0 1 32-32h213.333334a32 32 0 0 1 0 64h-213.333334a32 32 0 0 1-32-32zM597.333333 608a32 32 0 0 0 0 64h213.333334a32 32 0 0 0 0-64h-213.333334z" fill="#2c2c2c" p-id="2136"></path><path d="M42.666667 256a85.333333 85.333333 0 0 1 85.333333-85.333333h768a85.333333 85.333333 0 0 1 85.333333 85.333333v512a85.333333 85.333333 0 0 1-85.333333 85.333333H128a85.333333 85.333333 0 0 1-85.333333-85.333333V256z m85.333333-21.333333a21.333333 21.333333 0 0 0-21.333333 21.333333v512a21.333333 21.333333 0 0 0 21.333333 21.333333h768a21.333333 21.333333 0 0 0 21.333333-21.333333V256a21.333333 21.333333 0 0 0-21.333333-21.333333H128z" fill="#2c2c2c" p-id="2137"></path>
+            </symbol>
     </svg>
 
 </head>
 <body>
     <div id="layout-wrapper" class="container-fluid">
-        <nav class="nav">
-            <a id="toggle-sidenav" class="d-flex align-items-center py-3 my-3 link-dark text-decoration-none">
+        <nav class="nav row">
+            <a id="toggle-sidenav" class="d-flex align-items-center py-3 my-3 link-dark text-decoration-none col-2">
                 <span class="fs-6 fw-semibold">会员商店管理系统</span>
             </a>
+            <div class=" align-items-center py-3 my-3 link-dark text-decoration-none align-middle offset-1 col-2">
+                <span class="fs-6 fw-semibold align-middle"><svg class="bi me-2 my-auto align-middle" width="21.6" height="21.6"><use xlink:href="#ico_UserName" /></svg>当前用户:<span id="UserName"></span></span>
+            </div>
+            <div class=" align-items-center py-3 my-3 link-dark text-decoration-none align-middle col-2">
+                <span class="fs-6 fw-semibold align-middle"><svg class="bi me-2 my-auto align-middle" width="21.6" height="21.6"><use xlink:href="#ico_UserRole" /></svg>当前身份:<span id="UserRole"></span></span>
+            </div>
+
         </nav>
         <div id="layout-inner" class="row">
             <div id="layout-sidenav" class="">
                 <div class="mx-auto" style="width: 100%;">
                     <ul class="list-unstyled ps-0 ms-3">
                         @*系统*@
+
                         <li class="mb-md-3">
                             <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#shop-collapse" aria-expanded="true">
                                 系统管理
@@ -153,13 +176,14 @@
                             </div>
                         </li>
                         @*礼品*@
+
                         <li class="mb-md-3">
                             <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#gift-collapse" aria-expanded="false">
                                 礼品管理
                             </button>
                             <div class="collapse" id="gift-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <li><a id="GiftManagement" href="#" class="link-dark rounded">礼品管理</a></li>
+                                    <li><a id="GiftManagement" href="/Operation/GiftManagement" class="link-dark rounded">礼品管理</a></li>
                                 </ul>
                             </div>
                         </li>

@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
+using System.Web.Security;
 
 namespace MemberWebApplication.Controllers
 {
@@ -17,6 +18,7 @@ namespace MemberWebApplication.Controllers
         {
             return View();
         }
+        
         public ActionResult StoreManagement()
         {
             return View();
@@ -48,13 +50,18 @@ namespace MemberWebApplication.Controllers
             //    .ToList();
             var result = new
             {
-                rows = shops,
+                rows = shops
+                .OrderBy(s => s.S_ID)
+                .Skip(offset)
+                .Take(limit)
+                .ToList(),
                 total = totalCount
             };
 
             return Json(result, JsonRequestBehavior.AllowGet);
 
         }
+
 
     }
 

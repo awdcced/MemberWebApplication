@@ -350,4 +350,25 @@ INSERT INTO Users
 VALUES (8, 'zhengshi_admin', 'Password123', '郑十',  '1', '13800132000', 2, 1);
 select * from Shops
 select * from Users
+
+INSERT INTO CardLevels (CL_LevelName, CL_NeedPoint, CL_Point, CL_Percent)  
+VALUES   
+('青铜会员', '1000', 1, 1),  
+('白银会员', '5000', 1.25, 0.90),  
+('黄金会员', '10000', 1.50, 0.88),  
+('白金会员', '50000', 2.0, 0.85),  
+('钻石会员', '100000', 3.0, 0.80);
+
+-- 为店铺1添加礼品  
+INSERT INTO ExchangGifts (S_ID, EG_GiftCode, EG_GiftName, EG_Photo, EG_Point, EG_Number, EG_ExchangNum, EG_Remark)  
+VALUES   
+(1, 'GC01001', '巧克力零食', 'Chocolate1.jpg', 200, 1, 0, '美味的黑巧克力'),  
+(1, 'GC01002', '薯片零食', 'PotatoChips1.jpg', 150, 2, 0, '原味薯片，适合分享'),  
+(1, 'GC01003', '泰迪熊玩具', 'TeddyBear1.jpg', 300, 3, 0, '柔软的泰迪熊，孩子的最爱');  
   
+-- 为店铺2添加礼品  
+INSERT INTO ExchangGifts (S_ID, EG_GiftCode, EG_GiftName, EG_Photo, EG_Point, EG_Number, EG_ExchangNum, EG_Remark)  
+VALUES   
+(2, 'GC02001', '果汁饮料', 'Juice2.jpg', 100, 1, 0, '新鲜榨取的果汁'),  
+(2, 'GC02002', '遥控车玩具', 'RemoteCar2.jpg', 500, 2, 0, '高速遥控赛车，适合儿童'),  
+(2, 'GC02003', '坚果零食', 'Nuts2.jpg', 250, 3, 0, '混合坚果，健康美味');  

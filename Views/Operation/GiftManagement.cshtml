@@ -1,5 +1,6 @@
 ﻿
 @{
+    ViewBag.PageName = "礼品管理";
     ViewBag.Title = "GiftManagement";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -7,8 +8,8 @@
 <script>
     function LoadShopsTable() {
 
-        $("#ShopsTable").bootstrapTable({
-            url: "/SuperAdmin/GetShopsInfo",
+        $("#GiftsTable").bootstrapTable({
+            url: "/Operation/GetGiftsInfo",
             striped: true, //是否显示行间隔色
             pageNumber: 1,
             clickToSelect: true,
@@ -31,46 +32,23 @@
             columns: [{
                 radio: true,
             }, {
-                title: '编号',
-                field: 'S_ID'
+                title: '礼品编号',
+                field: 'EG_ID'
             }, {
-                title: '店铺名称',
-                field: 'S_Name'
+                title: '礼品编码',
+                field: 'EG_GiftCode'
             }, {
-                title: '店铺类型',
-                field: 'CI_Name'
+                title: '礼品名称',
+                field: 'EG_GiftName'
             }, {
-                title: '联系人',
-                field: 'S_ContactName'
+                title: '所需积分',
+                field: 'EG_Point'
             }, {
-                title: '联系人电话',
-                field: 'S_ContactTel'
+                title: '总数量',
+                field: 'EG_Number'
             }, {
-                title: '地址',
-                field: 'S_Address'
-            },
-            {
-                title: '是否分配管理员',
-                field: 'S_IsHasSetAdmin',
-                formatter: function (value) {
-                    if (true) {
-                        return '是';
-                    } else {
-                        return '否';
-                    }
-                },
-            },
-            {
-                title: '创立时间',
-                field: 'S_CreateTime',
-                formatter: function (value) {
-                    var date = new Date(parseInt(value.replace(/\D/igm, "")));
-                    var year = date.getFullYear();
-                    var month = date.getMonth() + 1;
-                    var day = date.getDay();
-                    return year + "年" + month + "月" + day + "日";
-
-                },
+                title: '已兑换的数量',
+                field: 'EG_ExchangNum'
             },],
         })
     };

@@ -55,81 +55,81 @@
     <table id="ShopsTable" class=""></table>
 </div>
 <script>
-    //function LoadShopsTable() {
+    function LoadShopsTable() {
 
-    //    $("#ShopsTable").bootstrapTable({
-    //        url: "/SuperAdmin/GetShopsInfo",
-    //        striped: true, //是否显示行间隔色
-    //        pageNumber: 1,
-    //        clickToSelect: true,
-    //        pagination: true,
-    //        sidePagination: 'server',//server:服务器端分页|client：前端分页
-    //        totalField: 'total',
-    //        pageSize: 15,
-    //        paginationShowPageGo: true,//是否跳转页码，这个需要扩展bootstrapTable.js插件，本身不支持
-    //        pageList: [0],//可选择单页记录数
+        $("#ShopsTable").bootstrapTable({
+            url: "/SuperAdmin/GetShopsInfo",
+            striped: true, //是否显示行间隔色
+            pageNumber: 1,
+            clickToSelect: true,
+            pagination: true,
+            sidePagination: 'server',//server:服务器端分页|client：前端分页
+            totalField: 'total',
+            pageSize: 15,
+            paginationShowPageGo: true,//是否跳转页码，这个需要扩展bootstrapTable.js插件，本身不支持
+            pageList: [0],//可选择单页记录数
 
-    //        queryParams: function (params) {
-    //            var temp = {
-    //                limit: params.limit,
-    //                offset: params.offset,
-    //                /* page : (params.offset / params.limit) + 1,*/
-    //            };
-    //            return temp;
-    //        },
+            queryParams: function (params) {
+                var temp = {
+                    limit: params.limit,
+                    offset: params.offset,
+                    /* page : (params.offset / params.limit) + 1,*/
+                };
+                return temp;
+            },
 
-    //        columns: [{
-    //            radio: true,
-    //        }, {
-    //            title: '编号',
-    //            field: 'S_ID'
-    //        }, {
-    //            title: '店铺名称',
-    //            field: 'S_Name'
-    //        }, {
-    //            title: '店铺类型',
-    //            field: 'CI_Name'
-    //        }, {
-    //            title: '联系人',
-    //            field: 'S_ContactName'
-    //        }, {
-    //            title: '联系人电话',
-    //            field: 'S_ContactTel'
-    //        }, {
-    //            title: '地址',
-    //            field: 'S_Address'
-    //        },
-    //        {
-    //            title: '是否分配管理员',
-    //            field: 'S_IsHasSetAdmin',
-    //            formatter: function (value) {
-    //                if (true) {
-    //                    return '是';
-    //                } else {
-    //                    return '否';
-    //                }
-    //            },
-    //        },
-    //        {
-    //            title: '创立时间',
-    //            field: 'S_CreateTime',
-    //            formatter: function (value) {
-    //                var date = new Date(parseInt(value.replace(/\D/igm, "")));
-    //                var year = date.getFullYear();
-    //                var month = date.getMonth() + 1;
-    //                var day = date.getDay();
-    //                return year + "年" + month + "月" + day + "日";
+            columns: [{
+                radio: true,
+            }, {
+                title: '编号',
+                field: 'S_ID'
+            }, {
+                title: '店铺名称',
+                field: 'S_Name'
+            }, {
+                title: '店铺类型',
+                field: 'CI_Name'
+            }, {
+                title: '联系人',
+                field: 'S_ContactName'
+            }, {
+                title: '联系人电话',
+                field: 'S_ContactTel'
+            }, {
+                title: '地址',
+                field: 'S_Address'
+            },
+            {
+                title: '是否分配管理员',
+                field: 'S_IsHasSetAdmin',
+                formatter: function (value) {
+                    if (true) {
+                        return '是';
+                    } else {
+                        return '否';
+                    }
+                },
+            },
+            {
+                title: '创立时间',
+                field: 'S_CreateTime',
+                formatter: function (value) {
+                    var date = new Date(parseInt(value.replace(/\D/igm, "")));
+                    var year = date.getFullYear();
+                    var month = date.getMonth() + 1;
+                    var day = date.getDay();
+                    return year + "年" + month + "月" + day + "日";
 
-    //            },
-    //        },],
-    //    })
-    //};
+                },
+            },],
+        })
+    };
 
-    //$(function () {
+    $(function () {
 
-    //    LoadShopsTable();
+        LoadShopsTable();
 
-    //});
+    });
 
 </script>
 
