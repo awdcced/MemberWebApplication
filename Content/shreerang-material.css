@@ -3432,7 +3432,7 @@ label.btn {
 }
 
 .form-control {
-  border-bottom-width: 1px;
+  border-bottom-width: 2px;
   border-radius: 0 !important;
 }
 .form-control:disabled {
