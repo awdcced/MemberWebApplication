@@ -18,13 +18,18 @@ namespace MemberWebApplication.Controllers
         {
             return View();
         }
-        
+
         public ActionResult StoreManagement()
         {
             return View();
         }
+        public ActionResult MembershipLevelManagement()
+        {
+            return View();
+        }
+        
 
-        public ActionResult GetShopsInfo(int limit, int offset)
+        public ActionResult GetShopsInfo(int limit, int offset, string SName, string SContactName, string SAddress)
         {
             db.Configuration.ProxyCreationEnabled = false;
             var totalCount = db.Shops.Count();
@@ -43,6 +48,18 @@ namespace MemberWebApplication.Controllers
                             s.S_CreateTime,
                             c.CI_Name,
                         };
+            if (!string.IsNullOrEmpty(SName))
+            {
+                shops = shops.Where(s => s.S_Name.Contains(SName));
+            }
+            if (!string.IsNullOrEmpty(SContactName))
+            {
+                shops = shops.Where(s => s.S_ContactName.Contains(SContactName));
+            }
+            if (!string.IsNullOrEmpty(SAddress))
+            {
+                shops = shops.Where(s => s.S_Address.Contains(SAddress));
+            }
             //var shops = db.Shops
             //    .OrderBy(s => s.S_ID)
             //    .Skip(offset)
@@ -61,7 +78,22 @@ namespace MemberWebApplication.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
 
         }
-
+        public ActionResult GetMembershipLevelsInfo(int limit, int offset,string CLevelName)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+            var totalCount = db.CardLevels.Count();
+            var levels = db.CardLevels.Where(o => true);
+            if (!string.IsNullOrEmpty(CLevelName))
+            {
+                levels = levels.Where(l => l.CL_LevelName.Contains(CLevelName));
+            }
+            var result = new
+            {
+                rows = levels.OrderBy(o => o.CL_ID).Skip(offset).Take(limit).ToList(),
+                total = totalCount
+            };
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
 
     }
 

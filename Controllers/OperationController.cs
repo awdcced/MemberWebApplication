@@ -20,18 +20,22 @@ namespace MemberWebApplication.Controllers
         {
             return View();
         }
-        public ActionResult GetGiftsInfo(int limit, int offset)
+        public ActionResult GetGiftsInfo(int limit, int offset, string EGiftName)
         {
             db.Configuration.ProxyCreationEnabled = false;
-            var user = (Users)Session["User"];
+            var user = CommonController.GetUser();
             var totalCount = db.ExchangGifts.Where(o => o.S_ID == user.S_ID).Count();
-            var gifts = db.ExchangGifts.Where(o => o.S_ID == user.S_ID).OrderBy(o => o.EG_ID).Skip(offset).Take(limit).ToList();
+            var gifts = db.ExchangGifts.Where(o => o.S_ID == user.S_ID);
+            if (!string.IsNullOrEmpty(EGiftName))
+            {
+                gifts = gifts.Where(g => g.EG_GiftName.Contains(EGiftName));
+            }
             var result = new
             {
-                rows = gifts,
+                rows = gifts.OrderBy(o => o.EG_ID).Skip(offset).Take(limit).ToList(),
                 total = totalCount
             };
-            return Json(result,JsonRequestBehavior.AllowGet);
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
 }

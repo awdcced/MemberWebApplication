@@ -1,33 +1,32 @@
 ﻿
 @{
-    ViewBag.PageName = "礼品管理";
-    ViewBag.Title = "GiftManagement";
+    ViewBag.PageName = "会员等级管理";
+    ViewBag.Title = "MembershipLevelManagement";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <form>
     <button type="button" class="btn btn-success" data-bs-toggle="offcanvas" data-bs-target="#CreatePageTop" aria-controls="CreatePageTop"><svg class="bi me-2 align-middle" width="18" height="18"><use xlink:href="#Create" /></svg><lable class="fs-6 fw-semibold align-middle">新增</lable></button>
     <button type="button" class="btn btn-primary"><svg class="bi me-2 my-auto align-middle" width="18" height="18"><use xlink:href="#Updata" /></svg><lable class="fs-6 fw-semibold align-middle">修改</lable></button>
     <button type="button" class="btn btn-danger"><svg class="bi me-2 my-auto align-middle" width="18" height="18"><use xlink:href="#Delete" /></svg><lable class="fs-6 fw-semibold align-middle">删除</lable></button>
-    <button type="button" class="btn btn-warning"><svg class="bi me-2 my-auto align-middle" width="18" height="18"><use xlink:href="#Distribution" /></svg><lable class="fs-6 fw-semibold text-white align-middle">分配管理员</lable></button>
 </form>
 
 <hr class="bg-dark" />
 <form>
     <div class="d-flex form-inline row mb-3">
-        <label class="col-1 form-label">礼品名称</label>
-        <input id="txtEGiftName" type="text" class="col-2 form-control" value="" />
+        <label class="col-1 form-label">等级名称</label>
+        <input id="txtCLevelName" type="text" class="col-2 form-control" value="" />
         <button id="btnSelect" type="button" class="col-1 mx-5 px-2 btn btn-info">
             <svg class="bi me-2 my-auto align-middle" width="18" height="18"><use xlink:href="#Select" /></svg>
             <lable class="fs-6 fw-semibold align-middle">查询</lable>
         </button>
     </div>
 </form>
-<table id="GiftsTable" class=""></table>
+<table id="MembershipLevelTable" class=""></table>
 <script>
     function LoadShopsTable() {
 
-        $("#GiftsTable").bootstrapTable({
-            url: "/Operation/GetGiftsInfo",
+        $("#MembershipLevelTable").bootstrapTable({
+            url: "/SuperAdmin/GetMembershipLevelsInfo",
             striped: true, //是否显示行间隔色
             pageNumber: 1,
             clickToSelect: true,
@@ -42,7 +41,7 @@
                 var temp = {
                     limit: params.limit,
                     offset: params.offset,
-                    EGiftName: $("#txtEGiftName").val(),
+                    CLevelName: $("#txtCLevelName").val(),
                     /* page : (params.offset / params.limit) + 1,*/
                 };
                 return temp;
@@ -51,24 +50,21 @@
             columns: [{
                 radio: true,
             }, {
-                title: '礼品编号',
-                field: 'EG_ID'
+                title: '等级编号',
+                field: 'CL_ID'
             }, {
-                title: '礼品编码',
-                field: 'EG_GiftCode'
-            }, {
-                title: '礼品名称',
-                field: 'EG_GiftName'
+                title: '等级名称',
+                field: 'CL_LevelName'
             }, {
                 title: '所需积分',
-                field: 'EG_Point'
+                field: 'CL_NeedPoint'
             }, {
-                title: '总数量',
-                field: 'EG_Number'
+                title: '加分比例',
+                field: 'CL_Point'
             }, {
-                title: '已兑换的数量',
-                field: 'EG_ExchangNum'
-            },],
+                title: '折扣比例',
+                field: 'CL_Percent'
+            }],
         })
     };
 
@@ -76,7 +72,9 @@
 
         LoadShopsTable();
         $("#btnSelect").bind("click", function () {
-            $("#GiftsTable").bootstrapTable("refresh");
+            $("#MembershipLevelTable").bootstrapTable("refresh");
         })
     });
 </script>
+
+

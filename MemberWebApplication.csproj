@@ -272,6 +272,7 @@
     <Content Include="Views\Shops\Edit.cshtml" />
     <Content Include="Views\Shops\Index.cshtml" />
     <Content Include="Views\Operation\GiftManagement.cshtml" />
+    <Content Include="Views\SuperAdmin\MembershipLevelManagement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
