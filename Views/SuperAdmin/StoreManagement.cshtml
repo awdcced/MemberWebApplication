@@ -10,61 +10,63 @@
 
 </svg>
 <div>
-    <div class="offcanvas offcanvas-top h-75 w-50 m-auto" tabindex="-1" id="CreatePageTop" aria-labelledby="offcanvasTopLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasTopLabel">新增店铺</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <hr class="bg-dark" />
-        <div class="offcanvas-body">
-            <form>
-                <div class="form-group w-50 mx-auto">
-                    <label class="form-label">店铺名称</label>
-                    <input type="text" class="form-control" placeholder="" name="name" value="" />
+    <div class="modal fade" id="CreatePageTop" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="CreatePageTop">新增店铺</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="form-group w-50 mx-auto">
-                    <label class="form-label">店铺类型</label>
-                    <div id="S-Category" class="row" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="1" checked>
-                        <label class="btn btn-outline-info col mx-2 mt-2" for="btnradio1">总部</label>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group mx-auto">
+                            <label class="form-label">店铺名称</label>
+                            <input id="newS_Name" type="text" class="form-control" placeholder="" value="" />
+                        </div>
+                        <div class="form-group mx-auto">
+                            <label class="form-label">店铺类型</label>
+                            <div id="newS_Category" class="row" role="group" aria-label="Basic radio toggle button group">
+                                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="1" checked>
+                                <label class="btn btn-outline-info col mx-2 mt-2" for="btnradio1">总部</label>
 
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="2">
-                        <label class="btn btn-outline-primary col mx-2 mt-2" for="btnradio2">直营店</label>
+                                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="2">
+                                <label class="btn btn-outline-primary col mx-2 mt-2" for="btnradio2">直营店</label>
 
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="3">
-                        <label class="btn btn-outline-dark col mx-2 mt-2" for="btnradio3">加盟店</label>
-                    </div>
+                                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="3">
+                                <label class="btn btn-outline-dark col mx-2 mt-2" for="btnradio3">加盟店</label>
+                            </div>
+                        </div>
+                        <div class="form-group mx-auto">
+                            <label class="form-label">联系人</label>
+                            <input id="newS_ContactName" type="text" class="form-control" name="name" value="" />
+                        </div>
+                        <div class="form-group mx-auto">
+                            <label class="form-label">联系电话</label>
+                            <input id="newS_ContactTel" type="text" class="form-control" name="name" value="" />
+                        </div>
+                        <div class="form-group mx-auto">
+                            <label class="form-label">店铺地址</label>
+                            <input id="newS_Address" type="text" class="form-control" name="name" value="" />
+                        </div>
+                        <div class="form-group mx-auto">
+                            <label class="form-label">备注</label>
+                            <input id="newS_Remark" type="text" class="form-control" name="name" value="" />
+                        </div>
+                    </form>
                 </div>
-                <div class="form-group w-50 mx-auto">
-                    <label class="form-label">联系人</label>
-                    <input type="text" class="form-control" name="name" value="" />
+                <div class="modal-footer">
+                    <button id="offcanvas-btn-Create" type="button" class="btn btn-primary w-25">新增</button>
                 </div>
-                <div class="form-group w-50 mx-auto">
-                    <label class="form-label">联系电话</label>
-                    <input type="text" class="form-control" name="name" value="" />
-                </div>
-                <div class="form-group w-50 mx-auto">
-                    <label class="form-label">店铺地址</label>
-                    <input type="text" class="form-control" name="name" value="" />
-                </div>
-                <div class="form-group w-50 mx-auto">
-                    <label class="form-label">备注</label>
-                    <input type="text" class="form-control" name="name" value="" />
-                </div>
-                <div class="mx-auto text-center w-50">
-                    <button id="offcanvas-btn-Create" class="mx-auto btn btn-outline-primary"><lable class="fs-6 fw-semibold align-middle">新增</lable></button>
-                </div>
-
-            </form>
+            </div>
         </div>
     </div>
+
     <form>
-        <button type="button" class="btn btn-success" data-bs-toggle="offcanvas" data-bs-target="#CreatePageTop" aria-controls="CreatePageTop"><svg class="bi me-2 align-middle" width="18" height="18"><use xlink:href="#Create" /></svg><lable class="fs-6 fw-semibold align-middle">新增</lable></button>
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#CreatePageTop" aria-controls="CreatePageTop"><svg class="bi me-2 align-middle" width="18" height="18"><use xlink:href="#Create" /></svg><lable class="fs-6 fw-semibold align-middle">新增</lable></button>
         <button type="button" class="btn btn-primary"><svg class="bi me-2 my-auto align-middle" width="18" height="18"><use xlink:href="#Updata" /></svg><lable class="fs-6 fw-semibold align-middle">修改</lable></button>
         <button type="button" class="btn btn-danger"><svg class="bi me-2 my-auto align-middle" width="18" height="18"><use xlink:href="#Delete" /></svg><lable class="fs-6 fw-semibold align-middle">删除</lable></button>
         <button type="button" class="btn btn-warning"><svg class="bi me-2 my-auto align-middle" width="18" height="18"><use xlink:href="#Distribution" /></svg><lable class="fs-6 fw-semibold text-white align-middle">分配管理员</lable></button>
     </form>
-
     <hr class="bg-dark" />
     <form>
         <div class="d-flex form-inline row mb-3">
@@ -75,14 +77,28 @@
             <label class="form-label col-1">联系电话</label>
             <input id="txtSAddress" type="text" class="col-2 form-control" value="" />
             <button id="btnSelect" type="button" class="col-1 mx-5 px-2 btn btn-info">
-            <svg class="bi me-2 my-auto align-middle" width="18" height="18"><use xlink:href="#Select" /></svg>
-            <lable class="fs-6 fw-semibold align-middle">查询</lable>
+                <svg class="bi me-2 my-auto align-middle" width="18" height="18"><use xlink:href="#Select" /></svg>
+                <lable class="fs-6 fw-semibold align-middle">查询</lable>
             </button>
         </div>
     </form>
     <table id="ShopsTable" class=""></table>
 </div>
 <script>
+    async function showToast(message, title, delay) {
+        var toastTemplate = $('#toast-template').clone();
+        toastTemplate.find('.toast-body').text(message);
+        toastTemplate.find('.toast-header').text(title);
+        toastTemplate.css('display', 'block');
+        toastTemplate.appendTo('#toast-container');
+        toastTemplate.toast('show');
+
+        if (delay) {
+            setTimeout(function () {
+                toastTemplate.remove();
+            }, delay);
+        }
+    }
     function LoadShopsTable() {
 
         $("#ShopsTable").bootstrapTable({
@@ -156,20 +172,46 @@
                 },
             },],
         })
-    };
-
-    $(function () {
-        $("#offcanvas-btn-Create").bind("click", function () {
-            var S_Category = $('#S-Category input[type="radio"]:checked').val();
-            alert(S_Category);
-        })
-
-
-        LoadShopsTable();
         $("#btnSelect").bind("click", function () {
             $("#ShopsTable").bootstrapTable("refresh");
         })
+    };
+    function LoadToolbar() {
+        $("#btnSelect").bind("click", function () {
+            $("#ShopsTable").bootstrapTable("refresh");
+        })
+        $("#offcanvas-btn-Create").bind("click", function () {
+            var newShop = {
+                S_Name: $('#newS_Name').val(),
+                S_Category: $('#newS_Category input[type="radio"]:checked').val(),
+                S_ContactName: $('#newS_ContactName').val(),
+                S_ContactTel: $('#newS_ContactTel').val(),
+                S_Address: $('#newS_Address').val(),
+                S_Remark: $('#newS_Remark').val(),
+            };
+            $.ajax({
+                dataType: "json",
+                url: "/SuperAdmin/CreateShop",
+                contentType: 'application/json',
+                type: 'post',
+                data: JSON.stringify(newShop),
+                success: function (result) {
+                    if (result) {
+                        $("#CreatePageTop").modal('toggle');
+                        $("#ShopsTable").bootstrapTable("refresh");
+                        showToast('这是一个Toast通知!', '通知', 5000);
+                    }
 
+                }
+            })
+
+        })
+    }
+
+    $(function () {
+
+        LoadShopsTable();
+        LoadToolbar();
     });
 
 </script>

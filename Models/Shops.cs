@@ -11,7 +11,9 @@ namespace MemberWebApplication.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class Shops
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,7 +26,8 @@ namespace MemberWebApplication.Models
             this.TransferLogs = new HashSet<TransferLogs>();
             this.Users = new HashSet<Users>();
         }
-    
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int S_ID { get; set; }
         public string S_Name { get; set; }
         public Nullable<int> S_Category { get; set; }
