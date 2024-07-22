@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace MemberWebApplication.Controllers
 {
+    [Authorize(Roles = "1,2")]
     public class ShopAdminController : Controller
     {
         // GET: ShopAdmin

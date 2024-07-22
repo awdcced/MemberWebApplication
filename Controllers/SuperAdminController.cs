@@ -10,6 +10,7 @@ using System.Web.Security;
 
 namespace MemberWebApplication.Controllers
 {
+    [Authorize(Roles = "1,2")]
     public class SuperAdminController : Controller
     {
         MemberManagementSystemDBEntities db = new MemberManagementSystemDBEntities();
@@ -27,7 +28,7 @@ namespace MemberWebApplication.Controllers
         {
             return View();
         }
-        
+
 
         public ActionResult GetShopsInfo(int limit, int offset, string SName, string SContactName, string SAddress)
         {
@@ -78,7 +79,7 @@ namespace MemberWebApplication.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
 
         }
-        public ActionResult GetMembershipLevelsInfo(int limit, int offset,string CLevelName)
+        public ActionResult GetMembershipLevelsInfo(int limit, int offset, string CLevelName)
         {
             db.Configuration.ProxyCreationEnabled = false;
             var totalCount = db.CardLevels.Count();

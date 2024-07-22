@@ -23,5 +23,17 @@ namespace MemberWebApplication
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+        protected void Application_AuthorizeRequest(object sender, System.EventArgs e)
+        {
+            HttpApplication App = (HttpApplication)sender;
+            HttpContext ThisContext = App.Context;
+            if (ThisContext.Request.IsAuthenticated == true) {
+                FormsIdentity Id = (FormsIdentity)ThisContext.User.Identity;
+                FormsAuthenticationTicket Ticket = Id.Ticket;
+                Users ThisUser = JsonConvert.DeserializeObject<Users>(Ticket.UserData);
+                string[] Roles = ThisUser.U_Role.ToString().Split(',');
+                ThisContext.User = new GenericPrincipal(Id,Roles);
+            }
+        }
     }
 }

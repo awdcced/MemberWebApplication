@@ -133,7 +133,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OperationController.cs" />
     <Compile Include="Controllers\ShopAdminController.cs" />
-    <Compile Include="Controllers\ShopsController.cs" />
     <Compile Include="Controllers\SuperAdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -266,11 +265,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Common\Login.cshtml" />
     <Content Include="Views\SuperAdmin\StoreManagement.cshtml" />
-    <Content Include="Views\Shops\Create.cshtml" />
-    <Content Include="Views\Shops\Delete.cshtml" />
-    <Content Include="Views\Shops\Details.cshtml" />
-    <Content Include="Views\Shops\Edit.cshtml" />
-    <Content Include="Views\Shops\Index.cshtml" />
     <Content Include="Views\Operation\GiftManagement.cshtml" />
     <Content Include="Views\SuperAdmin\MembershipLevelManagement.cshtml" />
   </ItemGroup>
