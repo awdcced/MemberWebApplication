@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using System.Web.Security;
+using System.Net.Sockets;
 
 namespace MemberWebApplication.Controllers
 {
@@ -95,7 +96,14 @@ namespace MemberWebApplication.Controllers
             };
             return Json(result, JsonRequestBehavior.AllowGet);
         }
-
+        public ActionResult CreateShop(Shops model)
+        {
+            model.S_IsHasSetAdmin = false;
+            model.S_CreateTime = DateTime.Now;
+            db.Shops.Add(model);
+            db.SaveChanges();
+            return Json(new { success = true });
+        }
     }
 
 }
