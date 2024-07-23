@@ -68,7 +68,25 @@ namespace MemberWebApplication.Controllers
                     string HashTicket = FormsAuthentication.Encrypt(Ticket);
                     HttpCookie UserCookie = new HttpCookie(FormsAuthentication.FormsCookieName, HashTicket);
                     HttpContext.Response.Cookies.Add(UserCookie);
-                    HttpContext.Response.Redirect(HttpContext.Request["ReturnUrl"]);
+                    if (!string.IsNullOrEmpty(HttpContext.Request["ReturnUrl"]))
+                    {
+                        HttpContext.Response.Redirect(HttpContext.Request["ReturnUrl"]);
+                    }
+                    else
+                    {
+                        if (User.Identity.Name == "2")
+                        {
+                            return RedirectToAction("StoreManagement", "SuperAdmin");
+                        }
+                        else if (User.Identity.Name == "2")
+                        {
+                            return RedirectToAction("StoreManagement", "SuperAdmin");
+                        }
+                        else if (User.Identity.Name == "3")
+                        {
+                            return RedirectToAction("StoreManagement", "SuperAdmin");
+                        }
+                    }
                 }
             }
             return View();

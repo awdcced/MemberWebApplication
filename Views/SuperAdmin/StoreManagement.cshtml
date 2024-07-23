@@ -85,10 +85,10 @@
     <table id="ShopsTable" class=""></table>
 </div>
 <script>
-    async function showToast(message, title, delay) {
-        var toastTemplate = $('#toast-template').clone();
+    function showToast(message, title, delay) {
+        var toastTemplate = $('#liveToast').clone();
         toastTemplate.find('.toast-body').text(message);
-        toastTemplate.find('.toast-header').text(title);
+        //toastTemplate.find('.toast-header').text(title);
         toastTemplate.css('display', 'block');
         toastTemplate.appendTo('#toast-container');
         toastTemplate.toast('show');
@@ -196,7 +196,7 @@
                     if (result) {
                         $("#CreatePageTop").modal('toggle');
                         $("#ShopsTable").bootstrapTable("refresh");
-                        showToast('这是一个Toast通知!', '通知', 5000);
+                        showToast('添加成功!', '通知', 2000);
                     }
 
                 }

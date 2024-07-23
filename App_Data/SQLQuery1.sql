@@ -265,15 +265,7 @@ CREATE TABLE ExchangLogs (
     FOREIGN KEY (U_ID) REFERENCES Users(U_ID), -- Users表U_ID是主键  
 
 );
-CREATE TABLE Categories (  
 
-    C_Category VARCHAR(20) PRIMARY KEY,  
-
-    C_Illustration VARCHAR(20),  
-
-    C_IsShow BIT  
-
-);  
 INSERT INTO Categories VALUES('S_Category','店铺类型',1)
 INSERT INTO Categories VALUES('U_Role','身份',1)
 INSERT INTO Categories VALUES('MC_State','会员状态',1)

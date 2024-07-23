@@ -157,6 +157,11 @@
             <path d="M512 929.959184c-199.053061 0-361.012245-161.959184-361.012245-361.012245 0-130.612245 71.053061-251.297959 184.946939-315.559184 9.926531-5.746939 22.987755-2.089796 28.212245 7.836735 5.746939 9.926531 2.089796 22.987755-7.836735 28.212245-100.832653 56.42449-163.526531 163.526531-163.526531 278.987755 0 176.065306 143.15102 319.216327 319.216327 319.216326s319.216327-143.15102 319.216327-319.216326c0-115.461224-62.693878-222.563265-163.526531-278.987755-9.926531-5.746939-13.583673-18.285714-7.836735-28.212245 5.746939-9.926531 18.285714-13.583673 28.212245-7.836735 113.893878 63.738776 184.946939 184.946939 184.946939 315.036735 0 199.57551-161.959184 361.534694-361.012245 361.534694z" fill="#E5404F" p-id="9423"></path>
             <path d="M512 135.836735c-26.122449 0-47.020408 20.897959-47.020408 47.020408v229.877551c0 26.122449 20.897959 47.020408 47.020408 47.020408s47.020408-20.897959 47.020408-47.020408V182.857143c0-26.122449-20.897959-47.020408-47.020408-47.020408z" fill="#E5404F" p-id="9424"></path>
         </symbol>
+        <symbol id="Notice-double" viewBox="0 0 1024 1024">
+            <title>Select</title>
+            <path d="M213.333333 426.666667a298.666667 298.666667 0 0 1 597.333334 0v384H213.333333v-384z" fill="#FFCC00" p-id="2255"></path>
+            <path d="M512 53.333333a32 32 0 0 1 32 32v12.202667a330.666667 330.666667 0 0 1 298.666667 329.130667v352H896a32 32 0 0 1 0 64H128a32 32 0 0 1 0-64h53.333333V426.666667a330.666667 330.666667 0 0 1 298.666667-329.130667V85.333333a32 32 0 0 1 32-32zM245.333333 426.666667v352h533.333334V426.666667a266.666667 266.666667 0 1 0-533.333334 0zM384 906.666667a32 32 0 0 0 0 64h256a32 32 0 0 0 0-64H384z" fill="#000000" p-id="2256"></path>
+        </symbol>
     </svg>
 
 </head>
@@ -252,12 +257,12 @@
         </div>
     </div>
     <div id="layout-wrapper" class="">
-        <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3">
-            <div id="liveToast" class="toast toast-top-right show" role="alert" aria-live="assertive" aria-atomic="true">
+        <div id="toast-container" class="toast-container position-fixed top-0 start-0 p-3">
+            <div id="liveToast" class="toast toast-top-right" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">
-                    @*<img src="..." class="rounded me-2" alt="...">*@
-                    <strong class="me-auto">Bootstrap</strong>
-                    <small>11 mins ago</small>
+                    <svg class="bi my-auto align-middle me-2" width="20" height="20"><use xlink:href="#Notice-double" /></svg>
+                    <strong class="me-auto">@ViewBag.PageName</strong>
+                    <small>刚刚</small>
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
                 <div class="toast-body">
